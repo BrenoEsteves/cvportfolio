@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Profissional - Designer | Programador | Game Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1a1f3a;
+            --accent-gold: #c9a961;
+            --accent-cyan: #00d9ff;
+            --accent-purple: #a855f7;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1f3a 50%, #0f172a 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background animated elements */
+        .animated-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+            top: -10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+            bottom: -10%;
+            right: -5%;
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
+            top: 50%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(30px, -30px);
+            }
+
+            66% {
+                transform: translate(-20px, 20px);
+            }
+        }
+
+        /* Scanlines effect */
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 217, 255, 0.02) 0px,
+                    rgba(0, 217, 255, 0.02) 2px,
+                    transparent 2px,
+                    transparent 4px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Grid overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.03) 75%, rgba(0, 217, 255, 0.03) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.03) 75%, rgba(0, 217, 255, 0.03) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Content wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.4);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Typography */
+        /* h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        } */
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .Sub-Title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--primary-dark);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 169, 97, 0.1);
+            box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-card {
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+        }
+
+        .card-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Scroll Reveal Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-reveal-blur {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal-blur.active {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+        }
+
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal-scale.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Initial animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-down {
+            animation: slideInDown 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+
+        /* Icon styling */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .icon-box {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.4), rgba(168, 85, 247, 0.4));
+            border-color: var(--accent-cyan);
+            transform: rotateY(360deg);
+        }
+
+        /* Stats */
+        .stat-number {
+            font-family: 'Valuta Solid', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        /* Skill badges */
+        .skill-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            background: rgba(0, 217, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: default;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(0, 217, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Project showcase */
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(168, 85, 247, 0.1));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+            background: rgba(15, 23, 42, 0.6);
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: rippleAnimation 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes rippleAnimation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .blob {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="animate-slide-in-down">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-wider">
+                <span class="gradient-text">BRENO ESTEVES</span>
+            </div>
+            <div class="hidden md:flex gap-8">
+                <a href="#sobre">Sobre</a>
+                <a href="#experiencia">Experiência</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#skills">Skills</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <button class="btn btn-primary md:block hidden">Contato</button>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center pt-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="animate-fade-in-up mb-6 hero-title">
+                            Criando Experiências <span class="gradient-text">Digitais</span>
+                        </h1>
+                        <p class="text-lg text-slate-300 mb-8 animate-fade-in-up delay-100 leading-relaxed">
+                            Product Designer | UX/UI | Design Systems e Experiências Digitais de Alta Performance com
+                            expertise em criar soluções inovadoras que combinam estética, funcionalidade e tecnologia de
+                            ponta. Especializado em projetos de alto impacto.
+                        </p>
+                        <div class="flex gap-4 animate-fade-in-up delay-200">
+                            <button class="btn btn-primary">Explorar Portfólio</button>
+                            <button class="btn btn-secondary">Download CV</button>
+                        </div>
+                    </div>
+                    <div class="relative animate-fade-in-right delay-300">
+                        <div
+                            class="w-full aspect-square bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl border border-cyan-500/30 flex items-center justify-center text-6xl">
+                            <img src="/Portifólio/img/machamp.webp" alt="">
+                        </div>
+                        <div
+                            class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-tr from-purple-600/20 to-transparent rounded-full blur-3xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 border-y border-cyan-500/10">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center scroll-reveal">
+                        <div class="stat-number">12+</div>
+                        <p class="text-slate-400 mt-2 font-medium">Anos de Experiência</p>
+                    </div>
+                    <div class="text-center scroll-reveal">
+                        <div class="stat-number">150+</div>
+                        <p class="text-slate-400 mt-2 font-medium">Projetos Concluídos</p>
+                    </div>
+                    <div class="text-center scroll-reveal">
+                        <div class="stat-number">98%</div>
+                        <p class="text-slate-400 mt-2 font-medium">Satisfação Clientes</p>
+                    </div>
+                    <div class="text-center scroll-reveal">
+                        <div class="stat-number">35+</div>
+                        <p class="text-slate-400 mt-2 font-medium">Prêmios Internacionais</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="mb-12 scroll-reveal Sub-Title">
+                    Sobre <span class="gradient-text">Mim</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
+                    <div class="scroll-reveal">
+                        <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+                            Product Designer com experiência em UX/UI Design, criação de interfaces digitais e design
+                            systems, atuando no desenvolvimento de soluções centradas no usuário para sites, landing
+                            pages, produtos digitais e sistemas. Ao longo da minha trajetória, tenho trabalhado na
+                            tradução de necessidades de negócio em experiências digitais eficientes, combinando
+                            usabilidade, consistência visual e performance.
+
+
+                        </p>
+                        <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+                            Possuo experiência colaborando com times multidisciplinares em ambientes ágeis, participando
+                            de todas as etapas do processo — da concepção e prototipação à entrega final. Além do design
+                            de interfaces, também atuo com motion design e edição de vídeos para conteúdos digitais,
+                            campanhas e materiais institucionais, ampliando o impacto visual e narrativo dos produtos.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="skill-badge">Design de produtos</span>
+                            <span class="skill-badge">Experiência do usuário (UX)</span>
+                            <span class="skill-badge">Liderança Técnica</span>
+                            <span class="skill-badge">Inovação Digital</span>
+                            <span class="skill-badge">Design de interface do usuário</span>
+                            <span class="skill-badge">Marketing digital</span>
+                            <span class="skill-badge">Metodologias ágeis e em cascata</span>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal">
+                        <div class="card">
+                            <h3 class="mb-6 text-cyan-400">Minha Metodologia</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="font-semibold text-slate-200 mb-2">01. Descoberta & Pesquisa</p>
+                                    <p class="text-slate-400 text-sm">Análise profunda do problema e do público-alvo</p>
+                                </div>
+                                <div class="border-t border-cyan-500/20 pt-4">
+                                    <p class="font-semibold text-slate-200 mb-2">02. Estratégia & Conceito</p>
+                                    <p class="text-slate-400 text-sm">Desenvolvimento de estratégia e direção criativa
+                                    </p>
+                                </div>
+                                <div class="border-t border-cyan-500/20 pt-4">
+                                    <p class="font-semibold text-slate-200 mb-2">03. Design & Prototipagem</p>
+                                    <p class="text-slate-400 text-sm">Criação de designs e protótipos interativos</p>
+                                </div>
+                                <div class="border-t border-cyan-500/20 pt-4">
+                                    <p class="font-semibold text-slate-200 mb-2">04. Desenvolvimento & Execução</p>
+                                    <p class="text-slate-400 text-sm">Implementação técnica com qualidade premium</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experiencia" class="py-20 border-t border-cyan-500/10">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="mb-12 scroll-reveal Sub-Title">
+                    Experiência <span class="gradient-text">Profissional</span>
+                </h2>
+                <div class="space-y-6">
+                    <div class="card-card scroll-reveal delay-100">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-cyan-400 mb-2">Designer - Marketing</h3>
+                                <p class="text-slate-400">Ka Solution | 2020 - Presente</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">5+ anos</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Atuação em projetos corporativos e educacionais, desenvolvendo soluções visuais de alto
+                            impacto para cursos, treinamentos, plataformas e campanhas.
+                            <br><br>
+                            <b>Principais entregar e responsabilidades:</b>
+                            <br>
+                            Criação de interfaces, layouts e assets visuais para sistemas internos e plataformas de
+                            ensino.
+                            Desenvolvimento de materiais gráficos completos, como e-mails marketing, banners,
+                            infográficos e apresentações.
+                            Construção de landing pages responsivas e diretrizes visuais para treinamentos corporativos.
+                            Suporte à equipe de produto e tecnologia com visão de design centrado no usuário.
+                            Atuação colaborativa em squads multidisciplinares utilizando metodologias ágeis.
+
+                            </ul>
+                        </p>
+
+                    </div>
+
+                    <div class="card-card scroll-reveal delay-200">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-cyan-400 mb-2">Professor de Design e Ferramentas Digitais</h3>
+                                <p class="text-slate-400">All Net | 2019 - 2020</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">1 ano</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Aulas de Design, Gestão e ferramentas Adobe/Microsoft.
+                            <br>
+                            Orientação de projetos acadêmicos e desenvolvimento de portfólios.
+                        </p>
+                    </div>
+
+                    <div class="card-card scroll-reveal delay-300">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-cyan-400 mb-2">Professor de Animação 3D e Game Design</h3>
+                                <p class="text-slate-400">Havok School | 2019 - 2020</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">1 ano</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Desenvolvimento de aplicações web escaláveis e jogos interativos. Implementação de
+                            arquiteturas modernas e padrões de design avançados. Publicação de 3 títulos com 500k+
+                            downloads.
+                        </p>
+                    </div>
+
+                    <div class="card-card scroll-reveal delay-300">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-cyan-400 mb-2">Professor de Game Design e Software</h3>
+                                <p class="text-slate-400">Microcamp | 2016 - 2018</p>
+                            </div>
+                            <span class="text-slate-500 text-sm">2+ anos</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            Cursos de design digital, ferramentas criativas e palestras em eventos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projetos" class="py-20 border-t border-cyan-500/10">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="mb-12 scroll-reveal Sub-Title">
+                    Projetos <span class="gradient-text">Destaque</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card scroll-reveal delay-100">
+                        <div class="project-image">🎮</div>
+                        <h3 class="mb-3 text-cyan-400">Plataforma de Gaming Imersiva</h3>
+                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                            Desenvolvimento de plataforma de gaming interativa com integração multiplayer em tempo real,
+                            sistema de progresso avançado e monetização premium. 2M+ usuários ativos.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Unity</span>
+                            <span class="skill-badge">WebGL</span>
+                            <span class="skill-badge">Real-time</span>
+                            <span class="skill-badge">Multiplayer</span>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-200">
+                        <div class="project-image">🎨</div>
+                        <h3 class="mb-3 text-cyan-400">Design System Enterprise</h3>
+                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                            Criação de design system completo para organização enterprise. 200+ componentes
+                            documentados, guias de uso, e implementação em React/TypeScript.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Figma</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">Storybook</span>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-300">
+                        <div class="project-image">💰</div>
+                        <h3 class="mb-3 text-cyan-400">Plataforma FinTech Luxury</h3>
+                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                            Arquitetura e design de plataforma de investimentos premium. Dashboard inteligente com
+                            analytics avançados, segurança de nível enterprise, e experiência ultra-refinada.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Next.js</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">GraphQL</span>
+                            <span class="skill-badge">Blockchain</span>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-400">
+                        <div class="project-image">🚀</div>
+                        <h3 class="mb-3 text-cyan-400">Campanha Digital Global</h3>
+                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
+                            Direção criativa e implementação de campanha digital para marca global. Experiência
+                            interativa multiplataforma com 50M+ impressões e 12% de taxa de conversão.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">Three.js</span>
+                            <span class="skill-badge">WebGL</span>
+                            <span class="skill-badge">Animação</span>
+                            <span class="skill-badge">UX Interactive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 border-t border-cyan-500/10">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="mb-12 scroll-reveal Sub-Title">
+                    Competências <span class="gradient-text">Técnicas</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card scroll-reveal delay-100">
+                        <div class="icon-box">🎨</div>
+                        <h3 class="mb-4">Design & Criatividade</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">UI/UX Design</p>
+                            <p class="text-slate-400 text-sm">Design de Produto Digital</p>
+                            <p class="text-slate-400 text-sm">Design Systems & Componentização</p>
+                            <p class="text-slate-400 text-sm">Prototipação (médio e alta fidelidade)</p>
+                            <p class="text-slate-400 text-sm">Branding</p>
+                            <p class="text-slate-400 text-sm">Ilustração Digital</p>
+                            <p class="text-slate-400 text-sm">Motion Design & Animação</p>
+                            <p class="text-slate-400 text-sm">Design 3D (modelagem e escultura digital)</p>
+                            <p class="text-slate-400 text-sm">Figma, Adobe XD, Photoshop, Maya e mais...</p>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-200">
+                        <div class="icon-box">⚙️</div>
+                        <h3 class="mb-4">Desenvolvimento</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">HTML</p>
+                            <p class="text-slate-400 text-sm">CSS</p>
+                            <p class="text-slate-400 text-sm">Bootstrap/Tailwind</p>
+                            <p class="text-slate-400 text-sm">JavaScript</p>
+                            <p class="text-slate-400 text-sm">Arquitetura Escalável</p>
+                            <p class="text-slate-400 text-sm">Responsividade e boas práticas de UI</p>
+                            <p class="text-slate-400 text-sm">Git e versionamento</p>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-400">
+                        <div class="icon-box">🎯</div>
+                        <h3 class="mb-4">Liderança & Estratégia</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">Visão estratégica de produto</p>
+                            <p class="text-slate-400 text-sm">Estruturação de Design System</p>
+                            <p class="text-slate-400 text-sm">Padronização visual e governança de interface</p>
+                            <p class="text-slate-400 text-sm">Tomada de decisão orientada à experiência do usuário</p>
+                            <p class="text-slate-400 text-sm">Comunicação com stakeholders</p>
+                            <p class="text-slate-400 text-sm">Gestão de Equipes</p>
+                            <p class="text-slate-400 text-sm">Product Strategy</p>
+                            <p class="text-slate-400 text-sm">Metodologias Ágeis</p>
+                            <p class="text-slate-400 text-sm">Gestão de múltiplos projetos</p>
+                            <p class="text-slate-400 text-sm">Pensamento Crítico</p>
+                            <p class="text-slate-400 text-sm">Organização de procesos criativos</p>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-500">
+                        <div class="icon-box">🌐</div>
+                        <h3 class="mb-4">Web & Performance</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">SEO & Performance</p>
+                            <p class="text-slate-400 text-sm">Acessibilidade Web</p>
+                            <p class="text-slate-400 text-sm">Otimização Avançada</p>
+                            <p class="text-slate-400 text-sm">Testes Automatizados</p>
+                            <p class="text-slate-400 text-sm">PWA & SPAs</p>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-600">
+                        <div class="icon-box">🤖</div>
+                        <h3 class="mb-4">Inteligência Artificial aplicada ao Design</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">Uso de IA para geração e refinamento de layouts</p>
+                            <p class="text-slate-400 text-sm">Apoio à pesquisa e análise de UX</p>
+                            <p class="text-slate-400 text-sm">Criação de variações de interface com IA</p>
+                            <p class="text-slate-400 text-sm">Geração de assets e apoio a design visual</p>
+                            <p class="text-slate-400 text-sm">Automação de tarefas criativas</p>
+                            <p class="text-slate-400 text-sm">Prompt Engineering para design e conteúdo</p>
+                        </div>
+                    </div>
+
+                    <div class="card scroll-reveal delay-300">
+                        <div class="icon-box">🎮</div>
+                        <h3 class="mb-4">Game Development</h3>
+                        <div class="space-y-2">
+                            <p class="text-slate-400 text-sm">Pixel Art & Sprite Design</p>
+                            <p class="text-slate-400 text-sm">Criação de assets para jogo 2D e 3D</p>
+                            <p class="text-slate-400 text-sm">Modelagem 3d para games</p>
+                            <p class="text-slate-400 text-sm">Animação para jogos</p>
+                            <p class="text-slate-400 text-sm">Construção visual de mundos e personagens</p>
+                            <p class="text-slate-400 text-sm">Unity | Unreal Engine | Construct</p>
+                            <p class="text-slate-400 text-sm">Game Design Avançado</p>
+                            <p class="text-slate-400 text-sm">WebGL & Web Games</p>
+                            <p class="text-slate-400 text-sm">C#, Blueprint e outras linguagens para jogos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 border-t border-cyan-500/10">
+            <div class="max-w-4xl mx-auto px-6 text-center scroll-reveal">
+                <h2 class="mb-6 Sub-Title">
+                    Pronto para Transformar seu <span class="gradient-text">Projeto</span>?
+                </h2>
+                <p class="text-slate-300 text-lg mb-8">
+                    Sou especializado em entregar soluções inovadoras que combinam design excepcional com tecnologia
+                    robusta. Vamos criar algo extraordinário juntos.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button class="btn btn-primary">Iniciar Conversa</button>
+                    <button class="btn btn-secondary">Agendar Reunião</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="py-20 border-t border-cyan-500/10">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="mb-12 text-center scroll-reveal Sub-Title">
+                    Entre em <span class="gradient-text">Contato</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="mailto:seu.email@example.com" class="card text-center group">
+                        <div class="icon-box mx-auto mb-4">📧</div>
+                        <h3 class="text-cyan-400 mb-2">Email</h3>
+                        <p class="text-slate-400 group-hover:text-cyan-400 transition">esteves.breno@gmail.com</p>
+                    </a>
+                    <a href="tel:+5511999999999" class="card text-center group">
+                        <div class="icon-box mx-auto mb-4">📱</div>
+                        <h3 class="text-cyan-400 mb-2">Telefone</h3>
+                        <p class="text-slate-400 group-hover:text-cyan-400 transition">+55 (11) 9 7045-0922</p>
+                    </a>
+                    <a href="#" class="card text-center group">
+                        <div class="icon-box mx-auto mb-4">🔗</div>
+                        <h3 class="text-cyan-400 mb-2">Redes Sociais</h3>
+                        <p class="text-slate-400 group-hover:text-cyan-400 transition">LinkedIn • Instagram</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-cyan-500/10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm mb-4">
+                © 2026 Portfolio. Todos os direitos reservados.
+            </p>
+            <div class="flex justify-center gap-6 text-sm">
+                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Privacy</a>
+                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Terms</a>
+                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Credits</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // SCROLL REVEAL SYSTEM - Advanced
+        // ==========================================
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealSelectors = [
+            '.scroll-reveal',
+            '.scroll-reveal-left',
+            '.scroll-reveal-right',
+            '.scroll-reveal-blur',
+            '.scroll-reveal-scale'
+        ];
+
+        const revealElements = [];
+        revealSelectors.forEach(selector => {
+            document.querySelectorAll(selector).forEach(el => {
+                revealElements.push(el);
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // ==========================================
+        // SMOOTH SCROLL Navigation
+        // ==========================================
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const yOffset = -80;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ==========================================
+        // BUTTON INTERACTIONS - Enhanced
+        // ==========================================
+
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 15px 50px rgba(0, 217, 255, 0.4)';
+            });
+
+            btn.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+
+            btn.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // ==========================================
+        // PARALLAX EFFECT para cards
+        // ==========================================
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) * 0.1;
+                const rotateY = (centerX - x) * 0.1;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // ==========================================
+        // NAVBAR SCROLL EFFECT
+        // ==========================================
+
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                navbar.style.backdropFilter = 'blur(20px)';
+                navbar.style.background = 'rgba(15, 23, 42, 0.7)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 217, 255, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.4)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // ==========================================
+        // MOUSE GLOW EFFECT - Cards
+        // ==========================================
+
+        document.addEventListener('mousemove', (e) => {
+            document.querySelectorAll('.card').forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const distance = Math.hypot(
+                    e.clientX - (rect.left + rect.width / 2),
+                    e.clientY - (rect.top + rect.height / 2)
+                );
+
+                if (distance < 300) {
+                    const intensity = 1 - (distance / 300);
+                    card.style.boxShadow = `0 0 ${30 * intensity}px rgba(0, 217, 255, ${0.3 * intensity})`;
+                }
+            });
+        });
+
+        // ==========================================
+        // DYNAMIC STATS COUNTER
+        // ==========================================
+
+        function animateCounter(element, target, duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 16);
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(interval);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const text = entry.target.textContent;
+                    const number = parseInt(text);
+
+                    if (!isNaN(number)) {
+                        animateCounter(entry.target, number);
+                        statsObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(num => statsObserver.observe(num));
+
+        // Page load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('[class*="animate-"]').forEach(el => {
+                el.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+
+</html>
