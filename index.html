@@ -476,10 +476,25 @@
             font-family: 'Valuta Solid', monospace;
             font-size: 2.5rem;
             font-weight: 700;
+            display: inline-block;
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .symbol {
+            font-family: 'Valuta Solid', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
         }
 
@@ -608,7 +623,7 @@
                         </p>
                         <div class="flex gap-4 animate-fade-in-up delay-200">
                             <a href="https://linktr.ee/BrenoEsteves">
-                            <button class="btn btn-primary">Explorar Portfólio</button></a>
+                                <button class="btn btn-primary">Explorar Portfólio</button></a>
                             <button class="btn btn-secondary">Download CV</button>
                         </div>
                     </div>
@@ -628,23 +643,27 @@
         <!-- Stats Section -->
         <section class="py-20 border-y border-cyan-500/10">
             <div class="max-w-6xl mx-auto px-6">
-                <div class="grid md:grid-cols-4 gap-8">
+                <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center scroll-reveal">
-                        <div class="stat-number">12+</div>
-                        <p class="text-slate-400 mt-2 font-medium">Anos de Experiência</p>
+                        <div class="stat-number">10</div><span class="symbol">+</span><span
+                            class="symbol">&nbsp;anos</span>
+                        <p class="text-slate-400 mt-2 font-medium">Experiência em Design Digital & Produto</p>
                     </div>
                     <div class="text-center scroll-reveal">
-                        <div class="stat-number">150+</div>
-                        <p class="text-slate-400 mt-2 font-medium">Projetos Concluídos</p>
+                        <span class="symbol">+</span>
+                        <div class="stat-number">3360 </div>
+                        <p class="text-slate-400 mt-2 font-medium">entregas estratégicas <br> UX, Web, Plataformas e
+                            Sistemas</p>
                     </div>
                     <div class="text-center scroll-reveal">
-                        <div class="stat-number">98%</div>
-                        <p class="text-slate-400 mt-2 font-medium">Satisfação Clientes</p>
+                        <span class="symbol">+</span>
+                        <div class="stat-number">50 </div>
+                        <p class="text-slate-400 mt-2 font-medium">implementações digitais</p>
                     </div>
-                    <div class="text-center scroll-reveal">
-                        <div class="stat-number">35+</div>
+                    <!-- <div class="text-center scroll-reveal">
+                        <div class="stat-number">35+</div><span class="symbol"nbsp;>anos</span>
                         <p class="text-slate-400 mt-2 font-medium">Prêmios Internacionais</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -970,8 +989,12 @@
                     robusta. Vamos criar algo extraordinário juntos.
                 </p>
                 <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <button class="btn btn-primary">Iniciar Conversa</button>
+                    <a href="https://wa.link/gxk8cq"target="_blank">
+                        <button class="btn btn-primary">Iniciar Conversa</button>
+                    </a>
+                    <a href="mailto:esteves.breno@gmail.com">
                     <button class="btn btn-secondary">Agendar Reunião</button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -983,12 +1006,12 @@
                     Entre em <span class="gradient-text">Contato</span>
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <a href="mailto:seu.email@example.com" class="card text-center group">
+                    <a href="mailto:esteves.breno@gmail.com" class="card text-center group">
                         <div class="icon-box mx-auto mb-4">📧</div>
                         <h3 class="text-cyan-400 mb-2">Email</h3>
                         <p class="text-slate-400 group-hover:text-cyan-400 transition">esteves.breno@gmail.com</p>
                     </a>
-                    <a href="tel:+5511999999999" class="card text-center group">
+                    <a href="https://wa.link/gxk8cq" class="card text-center group">
                         <div class="icon-box mx-auto mb-4">📱</div>
                         <h3 class="text-cyan-400 mb-2">Telefone</h3>
                         <p class="text-slate-400 group-hover:text-cyan-400 transition">+55 (11) 9 7045-0922</p>
