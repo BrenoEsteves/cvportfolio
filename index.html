@@ -1,1389 +1,1466 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Profissional - Designer | Programador | Game Designer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-dark: #0f172a;
-            --secondary-dark: #1a1f3a;
-            --accent-gold: #c9a961;
-            --accent-cyan: #00d9ff;
-            --accent-purple: #a855f7;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a1f3a 50%, #0f172a 100%);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background animated elements */
-        .animated-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.15;
-            animation: float 15s ease-in-out infinite;
-        }
-
-        .blob-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
-            top: -10%;
-            left: -5%;
-            animation-delay: 0s;
-        }
-
-        .blob-2 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
-            bottom: -10%;
-            right: -5%;
-            animation-delay: 2s;
-        }
-
-        .blob-3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent-gold) 0%, transparent 70%);
-            top: 50%;
-            right: 10%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-
-            33% {
-                transform: translate(30px, -30px);
-            }
-
-            66% {
-                transform: translate(-20px, 20px);
-            }
-        }
-
-        /* Scanlines effect */
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(0deg,
-                    rgba(0, 217, 255, 0.02) 0px,
-                    rgba(0, 217, 255, 0.02) 2px,
-                    transparent 2px,
-                    transparent 4px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Grid overlay */
-        .grid-overlay {
-            position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.03) 75%, rgba(0, 217, 255, 0.03) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.03) 75%, rgba(0, 217, 255, 0.03) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Content wrapper */
-        .content-wrapper {
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-            background: rgba(15, 23, 42, 0.4);
-            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        nav a:hover {
-            color: var(--accent-cyan);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Typography */
-        /* h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        } */
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 8vw, 4rem);
-            font-weight: 900;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 5vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        .Sub-Title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            border: 2px solid transparent;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-            font-size: 0.95rem;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: var(--primary-dark);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4);
-        }
-
-        .btn-secondary {
-            border: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
-            background: transparent;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(201, 169, 97, 0.1);
-            box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
-            transform: translateY(-3px);
-        }
-
-        /* Cards */
-        .card {
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-card {
-            background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .card-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
-        }
-
-        .card-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.15);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Scroll Reveal Animations */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scroll-reveal-left.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-reveal-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scroll-reveal-right.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-reveal-blur {
-            opacity: 0;
-            filter: blur(10px);
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scroll-reveal-blur.active {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0);
-        }
-
-        .scroll-reveal-scale {
-            opacity: 0;
-            transform: scale(0.9) translateY(20px);
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scroll-reveal-scale.active {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-
-        /* Initial animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in-right {
-            animation: fadeInRight 0.8s ease-out forwards;
-        }
-
-        .animate-slide-in-down {
-            animation: slideInDown 0.6s ease-out forwards;
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        .delay-400 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-500 {
-            animation-delay: 0.5s;
-        }
-
-        .delay-600 {
-            animation-delay: 0.6s;
-        }
-
-        /* Icon styling */
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(168, 85, 247, 0.2));
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover .icon-box {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.4), rgba(168, 85, 247, 0.4));
-            border-color: var(--accent-cyan);
-            transform: rotateY(360deg);
-        }
-
-        /* Stats */
-        .stat-number {
-            font-family: 'Valuta Solid', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        .symbol {
-            font-family: 'Valuta Solid', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        /* Skill badges */
-        .skill-badge {
-            display: inline-block;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            background: rgba(0, 217, 255, 0.05);
-            transition: all 0.3s ease;
-            cursor: default;
-            letter-spacing: 0.3px;
-            font-weight: 500;
-        }
-
-        .skill-badge:hover {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-            background: rgba(0, 217, 255, 0.1);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
-        }
-
-        /* Project showcase */
-        .project-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(168, 85, 247, 0.1));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(0, 217, 255, 0.1);
-            background: rgba(15, 23, 42, 0.6);
-        }
-
-        /* Ripple effect */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: rippleAnimation 0.6s ease-out;
-            pointer-events: none;
-        }
-
-        @keyframes rippleAnimation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            .blob {
-                width: 250px;
-                height: 250px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breno Esteves | Portfolio Design & Web</title>
+  <meta name="description" content="Landing page de portfólio e CV de Breno Esteves, designer e desenvolvedor web com foco em UX/UI, front-end, produto digital e IA aplicada." />
+  <style>
+    :root {
+      --ink: #120f10;
+      --night: #0a0d13;
+      --blue: #101a27;
+      --blue-soft: #1b2b3b;
+      --paper: #ead9b8;
+      --paper-2: #f5ead2;
+      --ivory: #fff4dc;
+      --muted: #c9b999;
+      --copper: #b45c3f;
+      --coral: #ff6c4f;
+      --gold: #e9bb6d;
+      --teal: #42d9ce;
+      --violet: #946cff;
+      --line: rgba(255, 244, 220, .18);
+      --line-strong: rgba(255, 244, 220, .34);
+      --max: 1180px;
+      --radius: 8px;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(148, 108, 255, .16), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(66, 217, 206, .14), transparent 32%),
+        linear-gradient(180deg, #17100e 0%, #080b10 32%, #0e1117 100%);
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      opacity: .2;
+      background:
+        linear-gradient(rgba(255, 244, 220, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 244, 220, .08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, #000, transparent 68%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .08;
+      background-image:
+        repeating-linear-gradient(0deg, transparent 0 2px, #fff 3px 4px),
+        repeating-linear-gradient(90deg, transparent 0 5px, #000 6px 7px);
+      mix-blend-mode: overlay;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .sans {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .particle-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .52;
+    }
+
+    .site-shell {
+      width: min(100%, 1500px);
+      margin: 0 auto;
+      overflow: hidden;
+      background: rgba(8, 10, 14, .5);
+      box-shadow: 0 0 0 1px rgba(255, 244, 220, .08), var(--shadow);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      z-index: 30;
+      width: min(1120px, calc(100% - 32px));
+      transform: translateX(-50%);
+    }
+
+    .nav-frame {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 12px 8px 18px;
+      border: 1px solid rgba(255, 244, 220, .18);
+      border-radius: var(--radius);
+      background: rgba(15, 17, 22, .72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, .28);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233, 187, 109, .6);
+      border-radius: 50%;
+      color: var(--gold);
+      background:
+        radial-gradient(circle, rgba(233, 187, 109, .25), transparent 52%),
+        rgba(255, 255, 255, .04);
+      font-size: .92rem;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .nav-list a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 11px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: rgba(255, 244, 220, .78);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .02em;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.is-active {
+      color: var(--ivory);
+      border-color: rgba(233, 187, 109, .42);
+      background: rgba(233, 187, 109, .11);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      background:
+        linear-gradient(90deg, rgba(6, 7, 10, .92) 0%, rgba(6, 7, 10, .56) 38%, rgba(6, 7, 10, .08) 76%),
+        linear-gradient(0deg, rgba(8, 10, 14, 1) 0%, rgba(8, 10, 14, .18) 38%, rgba(8, 10, 14, .22) 100%),
+        url("img/portfolio-hero.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 78px;
+      z-index: 2;
+      background:
+        linear-gradient(135deg, transparent 0 18%, #080a0e 18% 23%, transparent 23% 34%, #080a0e 34% 41%, transparent 41% 100%),
+        linear-gradient(0deg, #080a0e, transparent);
+      background-size: 220px 78px, 100% 100%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(300px, .42fr);
+      gap: 28px;
+      align-items: end;
+      padding: 150px 0 76px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 8px 10px;
+      border: 1px solid rgba(233, 187, 109, .44);
+      border-radius: var(--radius);
+      color: var(--gold);
+      background: rgba(18, 15, 16, .54);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 830px;
+      margin-bottom: 18px;
+      font-size: clamp(3.05rem, 5.85vw, 5.9rem);
+      line-height: .9;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow: 0 8px 34px rgba(0, 0, 0, .58);
+    }
+
+    .accent {
+      color: var(--coral);
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      margin-bottom: 24px;
+      color: rgba(255, 244, 220, .84);
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      text-shadow: 0 4px 18px rgba(0, 0, 0, .58);
+    }
+
+    .hero-actions,
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 15px;
+      border: 1px solid rgba(255, 244, 220, .34);
+      border-radius: var(--radius);
+      color: var(--ivory);
+      background: rgba(10, 13, 19, .62);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-weight: 850;
+      font-size: .9rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 244, 220, .68);
+      background: rgba(255, 244, 220, .1);
+    }
+
+    .button.primary {
+      border-color: rgba(255, 244, 220, .56);
+      color: #23120b;
+      background: linear-gradient(180deg, #fff4dc, #e5b86f);
+    }
+
+    .button.primary:hover {
+      background: linear-gradient(180deg, #fff9ed, #ffd086);
+    }
+
+    .button .icon {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .16);
+      line-height: 1;
+    }
+
+    .hero-card {
+      border: 1px solid rgba(255, 244, 220, .22);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: rgba(10, 13, 19, .72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, .32);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .hero-card h2 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .hero-card p {
+      margin-bottom: 16px;
+      color: rgba(255, 244, 220, .72);
+      font-size: .92rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .stat {
+      min-height: 78px;
+      display: grid;
+      align-content: center;
+      border: 1px solid rgba(255, 244, 220, .14);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .stat strong {
+      color: var(--teal);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: rgba(255, 244, 220, .7);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .section {
+      position: relative;
+      padding: 82px 0;
+    }
+
+    .section.dark {
+      background:
+        radial-gradient(circle at 22% 8%, rgba(66, 217, 206, .11), transparent 30%),
+        radial-gradient(circle at 88% 70%, rgba(255, 108, 79, .09), transparent 28%),
+        #080a0e;
+    }
+
+    .section.paper {
+      color: #211712;
+      background:
+        linear-gradient(180deg, rgba(255, 244, 220, .9), rgba(232, 211, 170, .96)),
+        var(--paper);
+    }
+
+    .section.paper::before,
+    .section.paper::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background:
+        linear-gradient(135deg, transparent 0 18%, rgba(8, 10, 14, 1) 18% 23%, transparent 23% 36%, rgba(8, 10, 14, 1) 36% 43%, transparent 43% 100%);
+      background-size: 160px 36px;
+      pointer-events: none;
+    }
+
+    .section.paper::before {
+      top: -1px;
+    }
+
+    .section.paper::after {
+      bottom: -1px;
+      transform: rotate(180deg);
+    }
+
+    .section.media-band {
+      min-height: 680px;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(8, 10, 14, .94), rgba(8, 10, 14, .62) 44%, rgba(8, 10, 14, .16)),
+        url("img/portfolio-case-ui.png") center / cover no-repeat;
+      border-top: 1px solid rgba(255, 244, 220, .11);
+      border-bottom: 1px solid rgba(255, 244, 220, .11);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(280px, .28fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-label {
+      width: fit-content;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .paper .section-label {
+      color: #8c3f2d;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.1rem, 4.4vw, 4.7rem);
+      line-height: .95;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-header p {
+      margin-bottom: 0;
+      color: rgba(255, 244, 220, .68);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .paper .section-header p {
+      color: rgba(33, 23, 18, .72);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, .48fr) minmax(0, .52fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .codex-image {
+      position: relative;
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+    }
+
+    .codex-image::before {
+      content: "";
+      position: absolute;
+      width: 78%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255, 108, 79, .2), transparent 62%),
+        conic-gradient(from 120deg, rgba(66, 217, 206, .34), transparent, rgba(233, 187, 109, .36), transparent);
+      filter: blur(4px);
+      opacity: .8;
+      animation: spin 18s linear infinite;
+    }
+
+    .codex-image img {
+      position: relative;
+      z-index: 1;
+      width: min(520px, 100%);
+      filter: drop-shadow(0 28px 34px rgba(35, 15, 5, .28));
+      transform: rotate(-2deg);
+    }
+
+    .about-copy {
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 1.03rem;
+    }
+
+    .about-copy p {
+      color: rgba(33, 23, 18, .78);
+    }
+
+    .about-copy p:first-child {
+      color: #211712;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.28rem, 2vw, 1.7rem);
+      line-height: 1.32;
+    }
+
+    .rune-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 22px 0 0;
+    }
+
+    .rune {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(33, 23, 18, .2);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: rgba(255, 255, 255, .32);
+    }
+
+    .rune img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .rune strong {
+      display: block;
+      font-size: .9rem;
+    }
+
+    .rune span {
+      color: rgba(33, 23, 18, .66);
+      font-size: .82rem;
+    }
+
+    .hex-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      align-items: center;
+    }
+
+    .hex-card {
+      --hex-frame-top: rgba(255, 244, 220, .12);
+      --hex-frame-bottom: rgba(255, 244, 220, .035);
+      min-height: 210px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      color: var(--ivory);
+      background: linear-gradient(180deg, var(--hex-frame-top), var(--hex-frame-bottom));
+      clip-path: polygon(50% 0, 93% 23%, 93% 77%, 50% 100%, 7% 77%, 7% 23%);
+      transition: transform .18s ease, filter .18s ease, background .18s ease;
+    }
+
+    .hex-card::before {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, .16), transparent 28%),
+        linear-gradient(145deg, rgba(66, 217, 206, .13), rgba(180, 92, 63, .15)),
+        #16202b;
+      clip-path: inherit;
+    }
+
+    .hex-card:hover,
+    .hex-card.is-hovered {
+      --hex-frame-top: rgba(255, 223, 153, .95);
+      --hex-frame-bottom: rgba(180, 92, 63, .82);
+      transform: translateY(-8px) scale(1.02);
+      filter:
+        drop-shadow(0 20px 30px rgba(233, 187, 109, .18))
+        drop-shadow(0 0 16px rgba(255, 108, 79, .16));
+    }
+
+    .hex-card.featured {
+      --hex-frame-top: rgba(233, 187, 109, .75);
+      --hex-frame-bottom: rgba(255, 108, 79, .4);
+      min-height: 250px;
+    }
+
+    .hex-grid:hover .hex-card.featured:not(:hover),
+    .hex-grid.has-hover .hex-card.featured:not(.is-hovered) {
+      --hex-frame-top: rgba(255, 244, 220, .12);
+      --hex-frame-bottom: rgba(255, 244, 220, .035);
+    }
+
+    .hex-inner {
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      text-align: center;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .hex-inner img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .35));
+    }
+
+    .hex-inner strong {
+      font-size: 1rem;
+      line-height: 1.16;
+    }
+
+    .hex-inner span {
+      max-width: 18ch;
+      color: rgba(255, 244, 220, .68);
+      font-size: .78rem;
+    }
+
+    .feature-note {
+      max-width: 780px;
+      margin: 28px auto 0;
+      color: rgba(255, 244, 220, .66);
+      text-align: center;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .95rem;
+    }
+
+    .media-content {
+      max-width: 520px;
+      padding: 30px;
+      border: 1px solid rgba(255, 244, 220, .2);
+      border-radius: var(--radius);
+      background: rgba(8, 10, 14, .7);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .38);
+    }
+
+    .media-content h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.3rem, 4.2vw, 4.2rem);
+    }
+
+    .media-content p {
+      color: rgba(255, 244, 220, .74);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .case-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 10px;
+      color: rgba(255, 244, 220, .78);
+    }
+
+    .case-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: .65em;
+      transform: rotate(45deg);
+      background: var(--gold);
+      box-shadow: 0 0 16px rgba(233, 187, 109, .55);
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .scroll-card {
+      min-height: 280px;
+      position: relative;
+      padding: 26px;
+      border: 1px solid rgba(33, 23, 18, .24);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .38), rgba(255, 255, 255, .14)),
+        linear-gradient(135deg, rgba(180, 92, 63, .1), transparent 46%);
+      box-shadow: 0 18px 32px rgba(50, 32, 18, .12);
+    }
+
+    .scroll-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(33, 23, 18, .12);
+      font-size: 4.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .scroll-card h3 {
+      position: relative;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .scroll-card p {
+      position: relative;
+      color: rgba(33, 23, 18, .72);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .tag-row {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      border: 1px solid rgba(33, 23, 18, .18);
+      border-radius: var(--radius);
+      padding: 7px 9px;
+      background: rgba(33, 23, 18, .06);
+      color: rgba(33, 23, 18, .76);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .offer {
+      min-height: 360px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      border: 1px solid rgba(255, 244, 220, .16);
+      border-radius: var(--radius);
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 244, 220, .09), rgba(255, 244, 220, .03)),
+        #101721;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .offer.featured {
+      border-color: rgba(66, 217, 206, .44);
+      background:
+        radial-gradient(circle at 50% 0, rgba(66, 217, 206, .18), transparent 38%),
+        linear-gradient(180deg, rgba(255, 244, 220, .1), rgba(255, 244, 220, .04)),
+        #101721;
+    }
+
+    .offer small {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .offer h3 {
+      margin: 8px 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .offer p {
+      color: rgba(255, 244, 220, .68);
+    }
+
+    .offer ul {
+      display: grid;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+      color: rgba(255, 244, 220, .78);
+      list-style: none;
+    }
+
+    .offer li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 9px;
+    }
+
+    .offer li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      margin-top: .65em;
+      background: var(--coral);
+    }
+
+    .final-cta {
+      position: relative;
+      min-height: 590px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(8, 10, 14, .14), rgba(8, 10, 14, .8)),
+        linear-gradient(90deg, rgba(8, 10, 14, .7), rgba(8, 10, 14, .18), rgba(8, 10, 14, .72)),
+        url("img/portfolio-hero.png") center bottom / cover no-repeat;
+    }
+
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle, rgba(66, 217, 206, .12), transparent 48%);
+      pointer-events: none;
+    }
+
+    .final-inner {
+      position: relative;
+      z-index: 1;
+      width: min(820px, calc(100% - 32px));
+      padding: 48px 0;
+    }
+
+    .final-inner h2 {
+      margin-bottom: 18px;
+      text-shadow: 0 10px 38px rgba(0, 0, 0, .58);
+    }
+
+    .final-inner p {
+      max-width: 680px;
+      margin: 0 auto 26px;
+      color: rgba(255, 244, 220, .76);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .social {
+      min-width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 244, 220, .2);
+      border-radius: 50%;
+      background: rgba(8, 10, 14, .58);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-3px);
+      border-color: rgba(233, 187, 109, .65);
+    }
+
+    .social img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .wallet {
+      width: fit-content;
+      max-width: min(100%, 520px);
+      margin: 18px auto 0;
+      border: 1px solid rgba(255, 244, 220, .24);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      color: rgba(255, 244, 220, .75);
+      background: rgba(8, 10, 14, .54);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .82rem;
+      overflow-wrap: anywhere;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(255, 244, 220, .12);
+      padding: 26px 0;
+      color: rgba(255, 244, 220, .62);
+      background: #07090d;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tilt {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .section-header,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding-top: 136px;
+      }
+
+      .hex-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .timeline-grid,
+      .offers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .site-header {
+        top: 10px;
+        width: calc(100% - 20px);
+      }
+
+      .nav-frame {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .nav-list {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        padding-bottom: 2px;
+      }
+
+      .nav-list a {
+        min-height: 32px;
+        padding: 0 9px;
+        white-space: nowrap;
+        font-size: .74rem;
+      }
+
+      .hero-inner {
+        padding-top: 204px;
+        padding-bottom: 64px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 17vw, 5rem);
+      }
+
+      .hero-card {
+        padding: 14px;
+      }
+
+      .stat-grid,
+      .rune-list,
+      .hex-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hex-card,
+      .hex-card.featured {
+        min-height: 190px;
+        clip-path: polygon(12% 0, 88% 0, 100% 50%, 88% 100%, 12% 100%, 0 50%);
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section.media-band {
+        min-height: 620px;
+      }
+
+      .media-content {
+        padding: 22px;
+      }
+
+      .codex-image {
+        min-height: 340px;
+      }
+
+      .final-cta {
+        min-height: 520px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="animated-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-    <div class="scanlines"></div>
-    <div class="grid-overlay"></div>
+  <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav class="animate-slide-in-down">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="font-bold text-xl tracking-wider">
-                <span class="gradient-text">BRENO ESTEVES</span>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="nav-frame sans">
+        <a class="brand" href="#top" aria-label="Breno Esteves, início">
+          <span class="brand-mark">BE</span>
+          <span>Breno Esteves</span>
+        </a>
+        <nav aria-label="Navegação principal">
+          <ul class="nav-list">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#cases">Cases</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="reveal">
+            <p class="eyebrow">Portfolio + CV Landing Page</p>
+            <h1 id="hero-title">Design, web e produto para abrir <span class="accent">novos portais.</span></h1>
+            <p class="hero-lead sans">Breno Esteves transforma informações profissionais em experiências digitais com presença visual, UX/UI, front-end responsivo, IA aplicada e pensamento de produto.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://wa.link/gxk8cq" target="_blank" rel="noreferrer"><span class="icon">+</span> Iniciar projeto</a>
+              <a class="button" href="https://linktr.ee/BrenoEsteves" target="_blank" rel="noreferrer">Ver portfólio</a>
+              <a class="button" href="mailto:esteves.breno@gmail.com">Contato direto</a>
             </div>
-            <div class="hidden md:flex gap-8">
-                <a href="#sobre">Sobre</a>
-                <a href="#experiencia">Experiência</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#skills">Skills</a>
-                <a href="#contato">Contato</a>
+          </div>
+
+          <aside class="hero-card reveal tilt" aria-label="Resumo profissional">
+            <h2>Perfil híbrido para projetos que exigem estratégia, estética e execução.</h2>
+            <p>Da estruturação da narrativa ao código publicado, a entrega une clareza de comunicação, experiência de uso e acabamento visual.</p>
+            <div class="stat-grid">
+              <div class="stat">
+                <strong>UX</strong>
+                <span>Jornada e interface</span>
+              </div>
+              <div class="stat">
+                <strong>Web</strong>
+                <span>Front-end responsivo</span>
+              </div>
+              <div class="stat">
+                <strong>IA</strong>
+                <span>Criação aplicada</span>
+              </div>
+              <div class="stat">
+                <strong>CV</strong>
+                <span>Presença profissional</span>
+              </div>
             </div>
-            <button class="btn btn-primary md:block hidden">Contato</button>
+          </aside>
         </div>
-    </nav>
+      </section>
 
-    <div class="content-wrapper">
-        <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center pt-20">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h1 class="animate-fade-in-up mb-6 hero-title">
-                            Criando Experiências <span class="gradient-text">Digitais</span>
-                        </h1>
-                        <p class="text-lg text-slate-300 mb-8 animate-fade-in-up delay-100 leading-relaxed">
-                            Product Designer | UX/UI | Design Systems e Experiências Digitais de Alta Performance com
-                            expertise em criar soluções inovadoras que combinam estética, funcionalidade e tecnologia de
-                            ponta. Especializado em projetos de alto impacto.
-                        </p>
-                        <div class="flex gap-4 animate-fade-in-up delay-200">
-                            <a href="https://linktr.ee/BrenoEsteves">
-                                <button class="btn btn-primary">Explorar Portfólio</button></a>
-                            <button class="btn btn-secondary">Download CV</button>
-                        </div>
-                    </div>
-                    <div class="relative animate-fade-in-right delay-300">
-                        <div
-                            class="w-full aspect-square bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl border border-cyan-500/30 flex items-center justify-center text-6xl">
-                            <img src="img/machamp.webp" alt="">
-                        </div>
-                        <div
-                            class="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-tr from-purple-600/20 to-transparent rounded-full blur-3xl">
-                        </div>
-                    </div>
+      <section class="section paper" id="sobre" aria-labelledby="sobre-title">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <p class="section-label">Sobre Breno</p>
+              <h2 id="sobre-title">Um portfólio com alma de landing page premium.</h2>
+            </div>
+            <p>Inspirado por mundos imersivos, interfaces futuristas e páginas de jogos, mas adaptado para uma apresentação profissional de design e web.</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="codex-image reveal tilt">
+              <img src="img/portfolio-cv-book.png" alt="Livro e pergaminhos representando CV e repertório profissional" />
+            </div>
+            <div class="about-copy reveal">
+              <p>Breno cria páginas, interfaces e materiais digitais que organizam ideias complexas em experiências claras, bonitas e prontas para gerar conversa.</p>
+              <p>O trabalho combina arquitetura de informação, direção visual, design systems, desenvolvimento front-end e IA aplicada para acelerar protótipos, refinar comunicação e transformar conteúdo profissional em presença digital.</p>
+              <p>A LP foi pensada para clientes, recrutadores e parceiros entenderem rapidamente onde o perfil gera valor: estratégia, design, web e produto.</p>
+              <div class="rune-list">
+                <div class="rune">
+                  <img src="img/estrategia_Icon.png" alt="" />
+                  <span><strong>Estratégia</strong><span>Oferta, narrativa e estrutura.</span></span>
                 </div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="py-20 border-y border-cyan-500/10">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center scroll-reveal">
-                        <div class="stat-number">10</div><span class="symbol">+</span><span
-                            class="symbol">&nbsp;anos</span>
-                        <p class="text-slate-400 mt-2 font-medium">Experiência em Design Digital & Produto</p>
-                    </div>
-                    <div class="text-center scroll-reveal">
-                        <span class="symbol">+</span>
-                        <div class="stat-number">3360 </div>
-                        <p class="text-slate-400 mt-2 font-medium">entregas estratégicas <br> UX, Web, Plataformas e
-                            Sistemas</p>
-                    </div>
-                    <div class="text-center scroll-reveal">
-                        <span class="symbol">+</span>
-                        <div class="stat-number">50 </div>
-                        <p class="text-slate-400 mt-2 font-medium">implementações digitais</p>
-                    </div>
-                    <!-- <div class="text-center scroll-reveal">
-                        <div class="stat-number">35+</div><span class="symbol"nbsp;>anos</span>
-                        <p class="text-slate-400 mt-2 font-medium">Prêmios Internacionais</p>
-                    </div> -->
+                <div class="rune">
+                  <img src="img/design_Icon.png" alt="" />
+                  <span><strong>Design</strong><span>UX/UI, identidade e sistema visual.</span></span>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="sobre" class="py-20">
-            <div class="max-w-6xl mx-auto px-6">
-                <h2 class="mb-12 scroll-reveal Sub-Title">
-                    Sobre <span class="gradient-text">Mim</span>
-                </h2>
-                <div class="grid md:grid-cols-2 gap-12 items-start">
-                    <div class="scroll-reveal">
-                        <p class="text-slate-300 mb-6 leading-relaxed text-lg">
-                            Product Designer com experiência em UX/UI Design, criação de interfaces digitais e design
-                            systems, atuando no desenvolvimento de soluções centradas no usuário para sites, landing
-                            pages, produtos digitais e sistemas. Ao longo da minha trajetória, tenho trabalhado na
-                            tradução de necessidades de negócio em experiências digitais eficientes, combinando
-                            usabilidade, consistência visual e performance.
-
-
-                        </p>
-                        <p class="text-slate-300 mb-6 leading-relaxed text-lg">
-                            Possuo experiência colaborando com times multidisciplinares em ambientes ágeis, participando
-                            de todas as etapas do processo — da concepção e prototipação à entrega final. Além do design
-                            de interfaces, também atuo com motion design e edição de vídeos para conteúdos digitais,
-                            campanhas e materiais institucionais, ampliando o impacto visual e narrativo dos produtos.
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-badge">Design de produtos</span>
-                            <span class="skill-badge">Experiência do usuário (UX)</span>
-                            <span class="skill-badge">Liderança Técnica</span>
-                            <span class="skill-badge">Inovação Digital</span>
-                            <span class="skill-badge">Design de interface do usuário</span>
-                            <span class="skill-badge">Marketing digital</span>
-                            <span class="skill-badge">Metodologias ágeis e em cascata</span>
-                        </div>
-                    </div>
-                    <div class="scroll-reveal">
-                        <div class="card">
-                            <h3 class="mb-6 text-cyan-400">Minha Metodologia</h3>
-                            <div class="space-y-4">
-                                <div>
-                                    <p class="font-semibold text-slate-200 mb-2">01. Descoberta & Pesquisa</p>
-                                    <p class="text-slate-400 text-sm">Análise profunda do problema e do público-alvo</p>
-                                </div>
-                                <div class="border-t border-cyan-500/20 pt-4">
-                                    <p class="font-semibold text-slate-200 mb-2">02. Estratégia & Conceito</p>
-                                    <p class="text-slate-400 text-sm">Desenvolvimento de estratégia e direção criativa
-                                    </p>
-                                </div>
-                                <div class="border-t border-cyan-500/20 pt-4">
-                                    <p class="font-semibold text-slate-200 mb-2">03. Design & Prototipagem</p>
-                                    <p class="text-slate-400 text-sm">Criação de designs e protótipos interativos</p>
-                                </div>
-                                <div class="border-t border-cyan-500/20 pt-4">
-                                    <p class="font-semibold text-slate-200 mb-2">04. Desenvolvimento & Execução</p>
-                                    <p class="text-slate-400 text-sm">Implementação técnica com qualidade premium</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="rune">
+                  <img src="img/desenvolvimento_Icon.png" alt="" />
+                  <span><strong>Front-end</strong><span>HTML, CSS, JavaScript e responsividade.</span></span>
                 </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experiencia" class="py-20 border-t border-cyan-500/10">
-            <div class="max-w-6xl mx-auto px-6">
-                <h2 class="mb-12 scroll-reveal Sub-Title">
-                    Experiência <span class="gradient-text">Profissional</span>
-                </h2>
-                <div class="space-y-6">
-                    <div class="card-card scroll-reveal delay-100">
-                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-cyan-400 mb-2">Designer - Marketing</h3>
-                                <p class="text-slate-400">Ka Solution | 2020 - Presente</p>
-                            </div>
-                            <span class="text-slate-500 text-sm">5+ anos</span>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Atuação em projetos corporativos e educacionais, desenvolvendo soluções visuais de alto
-                            impacto para cursos, treinamentos, plataformas e campanhas.
-                            <br><br>
-                            <b>Principais entregar e responsabilidades:</b>
-                            <br>
-                            Criação de interfaces, layouts e assets visuais para sistemas internos e plataformas de
-                            ensino.
-                            Desenvolvimento de materiais gráficos completos, como e-mails marketing, banners,
-                            infográficos e apresentações.
-                            Construção de landing pages responsivas e diretrizes visuais para treinamentos corporativos.
-                            Suporte à equipe de produto e tecnologia com visão de design centrado no usuário.
-                            Atuação colaborativa em squads multidisciplinares utilizando metodologias ágeis.
-
-                            </ul>
-                        </p>
-
-                    </div>
-
-                    <div class="card-card scroll-reveal delay-200">
-                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-cyan-400 mb-2">Professor de Design e Ferramentas Digitais</h3>
-                                <p class="text-slate-400">All Net | 2019 - 2020</p>
-                            </div>
-                            <span class="text-slate-500 text-sm">1 ano</span>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Aulas de Design, Gestão e ferramentas Adobe/Microsoft.
-                            <br>
-                            Orientação de projetos acadêmicos e desenvolvimento de portfólios.
-                        </p>
-                    </div>
-
-                    <div class="card-card scroll-reveal delay-300">
-                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-cyan-400 mb-2">Professor de Animação 3D e Game Design</h3>
-                                <p class="text-slate-400">Havok School | 2019 - 2020</p>
-                            </div>
-                            <span class="text-slate-500 text-sm">1 ano</span>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Desenvolvimento de aplicações web escaláveis e jogos interativos. Implementação de
-                            arquiteturas modernas e padrões de design avançados. Publicação de 3 títulos com 500k+
-                            downloads.
-                        </p>
-                    </div>
-
-                    <div class="card-card scroll-reveal delay-300">
-                        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-cyan-400 mb-2">Professor de Game Design e Software</h3>
-                                <p class="text-slate-400">Microcamp | 2016 - 2018</p>
-                            </div>
-                            <span class="text-slate-500 text-sm">2+ anos</span>
-                        </div>
-                        <p class="text-slate-300 leading-relaxed">
-                            Cursos de design digital, ferramentas criativas e palestras em eventos.
-                        </p>
-                    </div>
+                <div class="rune">
+                  <img src="img/IA_Icon.png" alt="" />
+                  <span><strong>IA aplicada</strong><span>Exploração criativa e produtividade.</span></span>
                 </div>
+              </div>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projetos" class="py-20 border-t border-cyan-500/10">
-            <div class="max-w-6xl mx-auto px-6">
-                <h2 class="mb-12 scroll-reveal Sub-Title">
-                    Projetos <span class="gradient-text">Destaque</span>
-                </h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card scroll-reveal delay-100">
-                        <div class="project-image">🎮</div>
-                        <h3 class="mb-3 text-cyan-400">Design de Games e artes digitais</h3>
-                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
-                            Desenvolvimento de jogos independentes e artes digitais para diversos clientes, com foco em
-                            jogos 2D e 3D.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">Unity</span>
-                            <span class="skill-badge">Construct</span>
-                            <span class="skill-badge">Unreal</span>
-                            <span class="skill-badge">WebGL</span>
-                            <span class="skill-badge">Real-time</span>
-                            <span class="skill-badge">Multiplayer</span>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-200">
-                        <div class="project-image">🎨</div>
-                        <h3 class="mb-3 text-cyan-400">Design System Enterprise</h3>
-                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
-                            Criação de design system completo para organização enterprise. 200+ componentes
-                            documentados, guias de uso, e implementação em React/TypeScript.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">Figma</span>
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">TypeScript</span>
-                            <span class="skill-badge">Storybook</span>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-300">
-                        <div class="project-image">💰</div>
-                        <h3 class="mb-3 text-cyan-400">Sites e landing pages</h3>
-                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
-                            Arquitetura e design de sites e landing pages premium.
-                            Estrategia de SEO, marketing digital e análise de dados.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">Next.js</span>
-                            <span class="skill-badge">TypeScript</span>
-                            <span class="skill-badge">HTML/CSS</span>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-400">
-                        <div class="project-image">🚀</div>
-                        <h3 class="mb-3 text-cyan-400">Campanha Digital Global</h3>
-                        <p class="text-slate-300 mb-4 text-sm leading-relaxed">
-                            Direção criativa e implementação de campanha digital para marca global. Experiência
-                            interativa multiplataforma com decisões estrtégicas e alta taxa de conversão.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-badge">Three.js</span>
-                            <span class="skill-badge">WebGL</span>
-                            <span class="skill-badge">Animação</span>
-                            <span class="skill-badge">UX Interactive</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 border-t border-cyan-500/10">
-            <div class="max-w-6xl mx-auto px-6">
-                <h2 class="mb-12 scroll-reveal Sub-Title">
-                    Competências <span class="gradient-text">Técnicas</span>
-                </h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card scroll-reveal delay-100">
-                        <div class="icon-box">
-                            <img src="img/design_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Design & Criatividade</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">UI/UX Design</p>
-                            <p class="text-slate-400 text-sm">Design de Produto Digital</p>
-                            <p class="text-slate-400 text-sm">Design Systems & Componentização</p>
-                            <p class="text-slate-400 text-sm">Prototipação (médio e alta fidelidade)</p>
-                            <p class="text-slate-400 text-sm">Branding</p>
-                            <p class="text-slate-400 text-sm">Ilustração Digital</p>
-                            <p class="text-slate-400 text-sm">Motion Design & Animação</p>
-                            <p class="text-slate-400 text-sm">Design 3D (modelagem e escultura digital)</p>
-                            <p class="text-slate-400 text-sm">Figma, Adobe XD, Photoshop, Maya e mais...</p>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-200">
-                        <div class="icon-box">
-                            <img src="img/desenvolvimento_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Desenvolvimento</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">HTML</p>
-                            <p class="text-slate-400 text-sm">CSS</p>
-                            <p class="text-slate-400 text-sm">Bootstrap/Tailwind</p>
-                            <p class="text-slate-400 text-sm">JavaScript</p>
-                            <p class="text-slate-400 text-sm">Arquitetura Escalável</p>
-                            <p class="text-slate-400 text-sm">Responsividade e boas práticas de UI</p>
-                            <p class="text-slate-400 text-sm">Git e versionamento</p>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-400">
-                        <div class="icon-box">
-                            <img src="img/estrategia_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Liderança & Estratégia</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">Visão estratégica de produto</p>
-                            <p class="text-slate-400 text-sm">Estruturação de Design System</p>
-                            <p class="text-slate-400 text-sm">Padronização visual e governança de interface</p>
-                            <p class="text-slate-400 text-sm">Tomada de decisão orientada à experiência do usuário</p>
-                            <p class="text-slate-400 text-sm">Comunicação com stakeholders</p>
-                            <p class="text-slate-400 text-sm">Gestão de Equipes</p>
-                            <p class="text-slate-400 text-sm">Product Strategy</p>
-                            <p class="text-slate-400 text-sm">Metodologias Ágeis</p>
-                            <p class="text-slate-400 text-sm">Gestão de múltiplos projetos</p>
-                            <p class="text-slate-400 text-sm">Pensamento Crítico</p>
-                            <p class="text-slate-400 text-sm">Organização de procesos criativos</p>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-600">
-                        <div class="icon-box">
-                            <img src="img/web_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Web & Performance</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">SEO & Performance</p>
-                            <p class="text-slate-400 text-sm">Acessibilidade Web</p>
-                            <p class="text-slate-400 text-sm">Otimização Avançada</p>
-                            <p class="text-slate-400 text-sm">Testes Automatizados</p>
-                            <p class="text-slate-400 text-sm">PWA & SPAs</p>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-600">
-                        <div class="icon-box">
-                            <img src="img/IA_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Inteligência Artificial aplicada ao Design</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">Uso de IA para geração e refinamento de layouts</p>
-                            <p class="text-slate-400 text-sm">Apoio à pesquisa e análise de UX</p>
-                            <p class="text-slate-400 text-sm">Criação de variações de interface com IA</p>
-                            <p class="text-slate-400 text-sm">Geração de assets e apoio a design visual</p>
-                            <p class="text-slate-400 text-sm">Automação de tarefas criativas</p>
-                            <p class="text-slate-400 text-sm">Prompt Engineering para design e conteúdo</p>
-                        </div>
-                    </div>
-
-                    <div class="card scroll-reveal delay-600">
-                        <div class="icon-box">
-                            <img src="img/games_Icon.png" alt="" width="80%">
-                        </div>
-                        <h3 class="mb-4">Game Development</h3>
-                        <div class="space-y-2">
-                            <p class="text-slate-400 text-sm">Pixel Art & Sprite Design</p>
-                            <p class="text-slate-400 text-sm">Criação de assets para jogo 2D e 3D</p>
-                            <p class="text-slate-400 text-sm">Modelagem 3d para games</p>
-                            <p class="text-slate-400 text-sm">Animação para jogos</p>
-                            <p class="text-slate-400 text-sm">Construção visual de mundos e personagens</p>
-                            <p class="text-slate-400 text-sm">Unity | Unreal Engine | Construct</p>
-                            <p class="text-slate-400 text-sm">Game Design Avançado</p>
-                            <p class="text-slate-400 text-sm">WebGL & Web Games</p>
-                            <p class="text-slate-400 text-sm">C#, Blueprint e outras linguagens para jogos</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section id="cta-section" class="py-20 border-t border-cyan-500/10 relative overflow-hidden">
-            <canvas id="cta-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
-            <div class="absolute inset-0 bg-slate-900/30 z-0 pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto px-6 text-center scroll-reveal relative z-10">
-                <h2 class="mb-6 Sub-Title">
-                    Pronto para Transformar seu <span class="gradient-text">Projeto</span>?
-                </h2>
-                <p class="text-slate-300 text-lg mb-8">
-                    Sou especializado em entregar soluções inovadoras que combinam design excepcional com tecnologia
-                    robusta. Vamos criar algo extraordinário juntos.
-                </p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="https://wa.link/gxk8cq" target="_blank">
-                        <button class="btn btn-primary">Iniciar Conversa</button>
-                    </a>
-                    <a href="mailto:esteves.breno@gmail.com">
-                        <button class="btn btn-secondary">Agendar Reunião</button>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contato" class="py-20 border-t border-cyan-500/10">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="mb-12 text-center scroll-reveal Sub-Title">
-                    Entre em <span class="gradient-text">Contato</span>
-                </h2>
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <a href="mailto:esteves.breno@gmail.com" class="card text-center group">
-                        <div class="icon-box mx-auto mb-4"><img src="img/email_Icon.png" alt="" width="80%"></div>
-                        <h3 class="text-cyan-400 mb-2">Email</h3>
-                        <p class="text-slate-400 group-hover:text-cyan-400 transition">esteves.breno@gmail.com</p>
-                    </a>
-                    <a href="https://wa.link/gxk8cq" class="card text-center group">
-                        <div class="icon-box mx-auto mb-4"><img src="img/phone_Icon.png" alt="" width="80%"></div>
-                        <h3 class="text-cyan-400 mb-2">Telefone</h3>
-                        <p class="text-slate-400 group-hover:text-cyan-400 transition">+55 (11) 9 7045-0922</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/breno-esteves-840b36138/?skipRedirect=true"
-                        class="card text-center group">
-                        <div class="icon-box mx-auto mb-4"><img src="img/linkedin_Icon.png" alt="" width="80%"></div>
-                        <h3 class="text-cyan-400 mb-2">Redes Sociais</h3>
-                        <p class="text-slate-400 group-hover:text-cyan-400 transition">LinkedIn</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-cyan-500/10">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-slate-500 text-sm mb-4">
-                © 2026 Portfolio. Todos os direitos reservados.
-            </p>
-            <div class="flex justify-center gap-6 text-sm">
-                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Privacy</a>
-                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Terms</a>
-                <a href="#" class="text-slate-500 hover:text-cyan-400 transition">Credits</a>
-            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="section dark" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <p class="section-label">Habilidades-chave</p>
+              <h2 id="skills-title">Competências como poderes principais da experiência.</h2>
+            </div>
+            <p>Cada frente foi tratada como uma habilidade dentro do sistema: descoberta, visual, interação, tecnologia e evolução.</p>
+          </div>
+
+          <div class="hex-grid">
+            <article class="hex-card reveal">
+              <div class="hex-inner">
+                <img src="img/estrategia_Icon.png" alt="" />
+                <strong>Estratégia</strong>
+                <span>Direção, posicionamento e clareza de escopo.</span>
+              </div>
+            </article>
+            <article class="hex-card reveal">
+              <div class="hex-inner">
+                <img src="img/design_Icon.png" alt="" />
+                <strong>UX/UI</strong>
+                <span>Interfaces com hierarquia e ritmo visual.</span>
+              </div>
+            </article>
+            <article class="hex-card featured reveal">
+              <div class="hex-inner">
+                <img src="img/web_Icon.png" alt="" />
+                <strong>Web Design</strong>
+                <span>Páginas responsivas, elegantes e funcionais.</span>
+              </div>
+            </article>
+            <article class="hex-card reveal">
+              <div class="hex-inner">
+                <img src="img/IA_Icon.png" alt="" />
+                <strong>IA Aplicada</strong>
+                <span>Criação, protótipo e refinamento acelerado.</span>
+              </div>
+            </article>
+            <article class="hex-card reveal">
+              <div class="hex-inner">
+                <img src="img/games_Icon.png" alt="" />
+                <strong>Interação</strong>
+                <span>Experiências com feedback e presença.</span>
+              </div>
+            </article>
+          </div>
+
+          <p class="feature-note reveal">O resultado esperado não é apenas uma página bonita: é uma apresentação profissional que guia leitura, sustenta credibilidade e facilita o próximo contato.</p>
+        </div>
+      </section>
+
+      <section class="section media-band" id="cases" aria-labelledby="cases-title">
+        <div class="container">
+          <div class="media-content reveal tilt">
+            <p class="section-label">Cases e interfaces</p>
+            <h2 id="cases-title">Experiências digitais com acabamento de produto.</h2>
+            <p>O layout reserva espaço para transformar cada projeto em estudo de caso: contexto, desafio, solução, visual, resultado e link de acesso.</p>
+            <ul class="case-list">
+              <li>Landing pages com narrativa, conversão e identidade visual.</li>
+              <li>Produtos B2B, dashboards e interfaces com design system.</li>
+              <li>Protótipos interativos com IA aplicada, experimentação e front-end.</li>
+            </ul>
+            <div class="inline-actions" style="margin-top:24px">
+              <a class="button primary" href="https://linktr.ee/BrenoEsteves" target="_blank" rel="noreferrer">Explorar trabalhos</a>
+              <a class="button" href="mailto:esteves.breno@gmail.com">Pedir apresentação</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section paper" id="cv" aria-labelledby="cv-title">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <p class="section-label">Whitepaper profissional</p>
+              <h2 id="cv-title">CV resumido para leitura rápida e decisão segura.</h2>
+            </div>
+            <p>Um bloco editorial para concentrar o que importa: perfil, especialidades, ferramentas, diferenciais e formas de colaboração.</p>
+          </div>
+
+          <div class="timeline-grid">
+            <article class="scroll-card reveal" data-step="01">
+              <h3>Atuação principal</h3>
+              <p>Design, produto digital e desenvolvimento web para construir presença profissional, interfaces e páginas com qualidade de apresentação.</p>
+              <div class="tag-row">
+                <span class="tag">UX/UI</span>
+                <span class="tag">Front-end</span>
+                <span class="tag">Produto</span>
+              </div>
+            </article>
+            <article class="scroll-card reveal" data-step="02">
+              <h3>Especialidades</h3>
+              <p>Design systems, arquitetura de informação, responsividade, landing pages, protótipos e melhoria de comunicação visual.</p>
+              <div class="tag-row">
+                <span class="tag">Design System</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </article>
+            <article class="scroll-card reveal" data-step="03">
+              <h3>Diferenciais</h3>
+              <p>Uso de IA aplicada, repertório criativo, pensamento estratégico e capacidade de transformar conteúdo bruto em experiência digital.</p>
+              <div class="tag-row">
+                <span class="tag">IA aplicada</span>
+                <span class="tag">Game Design</span>
+                <span class="tag">Conversão</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="servicos" aria-labelledby="servicos-title">
+        <div class="container">
+          <div class="section-header reveal">
+            <div>
+              <p class="section-label">Formatos de trabalho</p>
+              <h2 id="servicos-title">Escolha o modo de missão.</h2>
+            </div>
+            <p>Três formatos claros para começar uma página, desenvolver uma experiência completa ou manter evolução contínua.</p>
+          </div>
+
+          <div class="offers-grid">
+            <article class="offer reveal">
+              <div>
+                <small>Start</small>
+                <h3>Direção inicial</h3>
+                <p>Para organizar ideia, conteúdo e primeira versão de presença digital.</p>
+              </div>
+              <ul>
+                <li>Diagnóstico e arquitetura da página.</li>
+                <li>Direção visual e estrutura de seções.</li>
+                <li>HTML responsivo pronto para adaptar.</li>
+              </ul>
+              <a class="button" href="https://wa.link/gxk8cq" target="_blank" rel="noreferrer">Solicitar proposta</a>
+            </article>
+
+            <article class="offer featured reveal">
+              <div>
+                <small>Growth</small>
+                <h3>Design + implementação</h3>
+                <p>Para transformar estratégia, visual e front-end em uma entrega completa.</p>
+              </div>
+              <ul>
+                <li>UX/UI completo com sistema visual.</li>
+                <li>Front-end responsivo e refinado.</li>
+                <li>Conteúdo, CTA e acabamento final.</li>
+              </ul>
+              <a class="button primary" href="https://wa.link/gxk8cq" target="_blank" rel="noreferrer">Quero esse formato</a>
+            </article>
+
+            <article class="offer reveal">
+              <div>
+                <small>Squad</small>
+                <h3>Evolução contínua</h3>
+                <p>Para empresas, produtos e marcas que precisam melhorar a presença digital com cadência.</p>
+              </div>
+              <ul>
+                <li>Melhorias por sprint.</li>
+                <li>Ajustes de UX, conversão e interface.</li>
+                <li>Suporte visual e técnico recorrente.</li>
+              </ul>
+              <a class="button" href="mailto:esteves.breno@gmail.com">Enviar briefing</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="contato" aria-labelledby="contato-title">
+        <div class="final-inner reveal">
+          <p class="eyebrow" style="margin-inline:auto">Vamos trabalhar juntos</p>
+          <h2 id="contato-title">Vamos criar uma LP que apresente seu trabalho com impacto.</h2>
+          <p>Breno Esteves está disponível para projetos de design, web, portfólio profissional, landing pages, interfaces digitais e experiências com IA aplicada.</p>
+          <div class="hero-actions" style="justify-content:center">
+            <a class="button primary" href="https://wa.link/gxk8cq" target="_blank" rel="noreferrer"><span class="icon">+</span> Chamar no WhatsApp</a>
+            <a class="button" href="mailto:esteves.breno@gmail.com">esteves.breno@gmail.com</a>
+          </div>
+          <div class="social-row" aria-label="Links de contato">
+            <a class="social" href="https://www.linkedin.com/in/breno-esteves-840b36138/?skipRedirect=true" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <img src="img/linkedin_Icon.png" alt="" />
+            </a>
+            <a class="social" href="mailto:esteves.breno@gmail.com" aria-label="Email">
+              <img src="img/email_Icon.png" alt="" />
+            </a>
+            <a class="social" href="https://wa.link/gxk8cq" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <img src="img/phone_Icon.png" alt="" />
+            </a>
+          </div>
+          <div class="wallet">linktr.ee/BrenoEsteves</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer sans">
+      <div class="container footer-inner">
+        <span>© 2026 Breno Esteves. Portfolio/CV digital.</span>
+        <span>Design, web, produto e IA aplicada.</span>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        // ==========================================
-        // SCROLL REVEAL SYSTEM - Advanced
-        // ==========================================
+  <script>
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.16 });
 
-        const revealSelectors = [
-            '.scroll-reveal',
-            '.scroll-reveal-left',
-            '.scroll-reveal-right',
-            '.scroll-reveal-blur',
-            '.scroll-reveal-scale'
-        ];
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-        const revealElements = [];
-        revealSelectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => {
-                revealElements.push(el);
-            });
+    const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActiveNav = () => {
+      const current = sections.findLast((section) => section.getBoundingClientRect().top <= 130) || sections[0];
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${current.id}`);
+      });
+    };
+
+    window.addEventListener("scroll", setActiveNav, { passive: true });
+    setActiveNav();
+
+    const skillsGrid = document.querySelector(".hex-grid");
+    if (skillsGrid) {
+      const skillCards = Array.from(skillsGrid.querySelectorAll(".hex-card"));
+      const setHoveredSkill = (activeCard) => {
+        skillsGrid.classList.add("has-hover");
+        skillCards.forEach((card) => {
+          card.classList.toggle("is-hovered", card === activeCard);
         });
+      };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
+      skillCards.forEach((card) => {
+        card.addEventListener("pointerenter", () => setHoveredSkill(card));
+      });
 
-        revealElements.forEach(el => observer.observe(el));
+      skillsGrid.addEventListener("pointerleave", () => {
+        skillsGrid.classList.remove("has-hover");
+        skillCards.forEach((card) => card.classList.remove("is-hovered"));
+      });
+    }
 
-        // ==========================================
-        // SMOOTH SCROLL Navigation
-        // ==========================================
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const yOffset = -80;
-                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({
-                        top: y,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+    if (!prefersReducedMotion) {
+      document.querySelectorAll(".tilt").forEach((card) => {
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          card.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 6}deg) translateY(-2px)`;
         });
-
-        // ==========================================
-        // BUTTON INTERACTIONS - Enhanced
-        // ==========================================
-
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-3px)';
-                this.style.boxShadow = '0 15px 50px rgba(0, 217, 255, 0.4)';
-            });
-
-            btn.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '';
-            });
-
-            btn.addEventListener('click', function (e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                this.appendChild(ripple);
-
-                setTimeout(() => ripple.remove(), 600);
-            });
+        card.addEventListener("pointerleave", () => {
+          card.style.transform = "";
         });
+      });
 
-        // ==========================================
-        // PARALLAX EFFECT para cards
-        // ==========================================
+      const canvas = document.getElementById("particleCanvas");
+      const context = canvas.getContext("2d");
+      const particles = [];
+      const particleTotal = 80;
+      let width = 0;
+      let height = 0;
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) * 0.1;
-                const rotateY = (centerX - x) * 0.1;
+      const resize = () => {
+        width = canvas.width = window.innerWidth * window.devicePixelRatio;
+        height = canvas.height = window.innerHeight * window.devicePixelRatio;
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+      };
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-            });
+      const resetParticle = (particle) => {
+        particle.x = Math.random() * width;
+        particle.y = Math.random() * height;
+        particle.vx = (Math.random() - .5) * .18 * window.devicePixelRatio;
+        particle.vy = (.16 + Math.random() * .28) * window.devicePixelRatio;
+        particle.r = (Math.random() * 1.6 + .6) * window.devicePixelRatio;
+        particle.alpha = .24 + Math.random() * .56;
+      };
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-            });
+      resize();
+      for (let i = 0; i < particleTotal; i += 1) {
+        const particle = {};
+        resetParticle(particle);
+        particles.push(particle);
+      }
+
+      const drawParticles = () => {
+        context.clearRect(0, 0, width, height);
+        particles.forEach((particle, index) => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          if (particle.y > height + 20 || particle.x < -20 || particle.x > width + 20) resetParticle(particle);
+          const hueColor = index % 3 === 0 ? "66, 217, 206" : index % 3 === 1 ? "233, 187, 109" : "255, 108, 79";
+          context.beginPath();
+          context.fillStyle = `rgba(${hueColor}, ${particle.alpha})`;
+          context.shadowColor = `rgba(${hueColor}, .85)`;
+          context.shadowBlur = 12 * window.devicePixelRatio;
+          context.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+          context.fill();
         });
+        requestAnimationFrame(drawParticles);
+      };
 
-        // ==========================================
-        // NAVBAR SCROLL EFFECT
-        // ==========================================
-
-        const navbar = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > 100) {
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.background = 'rgba(15, 23, 42, 0.7)';
-                navbar.style.boxShadow = '0 4px 20px rgba(0, 217, 255, 0.1)';
-            } else {
-                navbar.style.background = 'rgba(15, 23, 42, 0.4)';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // ==========================================
-        // MOUSE GLOW EFFECT - Cards
-        // ==========================================
-
-        document.addEventListener('mousemove', (e) => {
-            document.querySelectorAll('.card').forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const distance = Math.hypot(
-                    e.clientX - (rect.left + rect.width / 2),
-                    e.clientY - (rect.top + rect.height / 2)
-                );
-
-                if (distance < 300) {
-                    const intensity = 1 - (distance / 300);
-                    card.style.boxShadow = `0 0 ${30 * intensity}px rgba(0, 217, 255, ${0.3 * intensity})`;
-                }
-            });
-        });
-
-        // ==========================================
-        // DYNAMIC STATS COUNTER
-        // ==========================================
-
-        function animateCounter(element, target, duration = 2000) {
-            let current = 0;
-            const increment = target / (duration / 16);
-            const interval = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target;
-                    clearInterval(interval);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 16);
-        }
-
-        const statNumbers = document.querySelectorAll('.stat-number');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const text = entry.target.textContent;
-                    const number = parseInt(text);
-
-                    if (!isNaN(number)) {
-                        animateCounter(entry.target, number);
-                        statsObserver.unobserve(entry.target);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statNumbers.forEach(num => statsObserver.observe(num));
-
-        // ==========================================
-        // CTA CANVAS PARTICLE EFFECT
-        // ==========================================
-        const ctaSection = document.getElementById('cta-section');
-        const ctaCanvas = document.getElementById('cta-canvas');
-
-        if (ctaSection && ctaCanvas) {
-            const ctx = ctaCanvas.getContext('2d');
-            let particlesArray;
-
-            function setCanvasSize() {
-                ctaCanvas.width = ctaSection.offsetWidth;
-                ctaCanvas.height = ctaSection.offsetHeight;
-                initParticles();
-            }
-
-            let mouse = {
-                x: null,
-                y: null,
-                radius: 120
-            }
-
-            ctaSection.addEventListener('mousemove', function (event) {
-                const rect = ctaSection.getBoundingClientRect();
-                mouse.x = event.clientX - rect.left;
-                mouse.y = event.clientY - rect.top;
-            });
-
-            ctaSection.addEventListener('mouseleave', function () {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-            class Particle {
-                constructor(x, y, directionX, directionY, size, color) {
-                    this.x = x;
-                    this.y = y;
-                    this.directionX = directionX;
-                    this.directionY = directionY;
-                    this.size = size;
-                    this.color = color;
-                    this.baseX = this.x;
-                    this.baseY = this.y;
-                    this.density = (Math.random() * 30) + 1;
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                }
-                update() {
-                    if (this.x > ctaCanvas.width || this.x < 0) {
-                        this.directionX = -this.directionX;
-                    }
-                    if (this.y > ctaCanvas.height || this.y < 0) {
-                        this.directionY = -this.directionY;
-                    }
-
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
-
-                    if (distance < mouse.radius) {
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    } else {
-                        if (this.x !== this.baseX) {
-                            let dx = this.x - this.baseX;
-                            this.x -= dx / 10;
-                        }
-                        if (this.y !== this.baseY) {
-                            let dy = this.y - this.baseY;
-                            this.y -= dy / 10;
-                        }
-                    }
-
-                    this.x += this.directionX;
-                    this.y += this.directionY;
-                    this.baseX += this.directionX;
-                    this.baseY += this.directionY;
-
-                    this.draw();
-                }
-            }
-
-            function initParticles() {
-                particlesArray = [];
-                let numberOfParticles = (ctaCanvas.height * ctaCanvas.width) / 6000;
-                for (let i = 0; i < numberOfParticles; i++) {
-                    let size = (Math.random() * 2) + 1;
-                    let x = (Math.random() * ((ctaCanvas.width - size * 2) - (size * 2)) + size * 2);
-                    let y = (Math.random() * ((ctaCanvas.height - size * 2) - (size * 2)) + size * 2);
-                    let directionX = (Math.random() * 1) - 0.5;
-                    let directionY = (Math.random() * 1) - 0.5;
-                    let color = 'rgba(0, 217, 255, 0.8)';
-
-                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-                }
-            }
-
-            function connectParticles() {
-                let opacityValue = 1;
-                for (let a = 0; a < particlesArray.length; a++) {
-                    for (let b = a; b < particlesArray.length; b++) {
-                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
-                            ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                        if (distance < 10000) {
-                            opacityValue = 1 - (distance / 10000);
-                            ctx.strokeStyle = 'rgba(0, 217, 255,' + opacityValue + ')';
-                            ctx.lineWidth = 1;
-                            ctx.beginPath();
-                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-            }
-
-            function animateParticles() {
-                requestAnimationFrame(animateParticles);
-                ctx.clearRect(0, 0, ctaCanvas.width, ctaCanvas.height);
-                for (let i = 0; i < particlesArray.length; i++) {
-                    particlesArray[i].update();
-                }
-                connectParticles();
-            }
-
-            setCanvasSize();
-            animateParticles();
-            window.addEventListener('resize', setCanvasSize);
-        }
-
-        // Page load
-        window.addEventListener('load', () => {
-            document.querySelectorAll('[class*="animate-"]').forEach(el => {
-                el.style.opacity = '1';
-            });
-        });
-    </script>
+      window.addEventListener("resize", resize, { passive: true });
+      drawParticles();
+    }
+  </script>
 </body>
-
 </html>
