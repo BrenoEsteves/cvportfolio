@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trabalhos | Breno Esteves</title>
+  <meta name="description" content="Galeria de trabalhos de design, ilustração, pixel art, 3D art, vídeos e jogos de Breno Esteves em formato de página RPG." />
+  <style>
+    :root {
+      --night: #07090d;
+      --void: #030506;
+      --panel: #101721;
+      --panel-2: #172330;
+      --paper: #ead9b8;
+      --ivory: #fff4dc;
+      --muted: #cbbd9e;
+      --gold: #e6b35f;
+      --gold-2: #fff0ba;
+      --coral: #ff6c4f;
+      --teal: #42d9ce;
+      --violet: #946cff;
+      --line: rgba(255, 244, 220, .18);
+      --line-strong: rgba(255, 244, 220, .38);
+      --max: 1180px;
+      --radius: 8px;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ivory);
+      background:
+        radial-gradient(circle at 16% 6%, rgba(66, 217, 206, .14), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(255, 108, 79, .13), transparent 30%),
+        linear-gradient(180deg, #11100f 0%, #07090d 34%, #0d1118 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 244, 220, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 244, 220, .07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: .22;
+      mask-image: linear-gradient(to bottom, #000, transparent 70%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .sans {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      z-index: 40;
+      width: min(1120px, calc(100% - 32px));
+      transform: translateX(-50%);
+    }
+
+    .nav-frame {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 12px 8px 18px;
+      border: 1px solid rgba(255, 244, 220, .18);
+      border-radius: var(--radius);
+      background: rgba(15, 17, 22, .78);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, .3);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 900;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233, 187, 109, .62);
+      border-radius: 50%;
+      color: var(--gold);
+      background: radial-gradient(circle, rgba(233, 187, 109, .25), transparent 52%);
+      font-size: .92rem;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .nav-list a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 11px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: rgba(255, 244, 220, .78);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.is-active {
+      color: var(--ivory);
+      border-color: rgba(233, 187, 109, .42);
+      background: rgba(233, 187, 109, .11);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5, 7, 10, .92), rgba(5, 7, 10, .54) 45%, rgba(5, 7, 10, .78)),
+        linear-gradient(0deg, rgba(7, 9, 13, 1), rgba(7, 9, 13, .06) 42%),
+        url("img/portfolio-hero.png") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 78px;
+      background:
+        linear-gradient(135deg, transparent 0 18%, var(--paper) 18% 23%, transparent 23% 34%, var(--paper) 34% 41%, transparent 41% 100%),
+        linear-gradient(0deg, var(--paper), transparent);
+      background-size: 220px 78px, 100% 100%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(300px, .42fr);
+      gap: 28px;
+      align-items: end;
+      padding: 150px 0 108px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 8px 10px;
+      border: 1px solid rgba(233, 187, 109, .44);
+      border-radius: var(--radius);
+      color: var(--gold);
+      background: rgba(18, 15, 16, .54);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 18px;
+      font-size: clamp(3.2rem, 6.4vw, 6.6rem);
+      line-height: .88;
+      letter-spacing: 0;
+      text-shadow: 0 8px 34px rgba(0, 0, 0, .58);
+      text-wrap: balance;
+    }
+
+    .accent {
+      color: var(--coral);
+    }
+
+    .hero-lead {
+      max-width: 680px;
+      margin-bottom: 24px;
+      color: rgba(255, 244, 220, .82);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 15px;
+      border: 1px solid rgba(255, 244, 220, .34);
+      border-radius: var(--radius);
+      color: var(--ivory);
+      background: rgba(10, 13, 19, .62);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-weight: 850;
+      font-size: .9rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 244, 220, .68);
+      background: rgba(255, 244, 220, .1);
+    }
+
+    .button.primary {
+      border-color: rgba(255, 244, 220, .56);
+      color: #23120b;
+      background: linear-gradient(180deg, #fff4dc, #e5b86f);
+    }
+
+    .hero-actions,
+    .inline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .quest-card {
+      border: 1px solid rgba(255, 244, 220, .22);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: rgba(10, 13, 19, .74);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, .32);
+    }
+
+    .quest-card h2 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+      line-height: 1.06;
+    }
+
+    .quest-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .quest-stat {
+      border: 1px solid rgba(255, 244, 220, .14);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .quest-stat strong {
+      display: block;
+      color: var(--teal);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .quest-stat span {
+      color: rgba(255, 244, 220, .7);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .paper-section {
+      position: relative;
+      padding: 72px 0;
+      color: #211712;
+      background:
+        linear-gradient(180deg, rgba(255, 244, 220, .92), rgba(232, 211, 170, .96)),
+        var(--paper);
+    }
+
+    .dark-section {
+      position: relative;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(66, 217, 206, .1), transparent 32%),
+        radial-gradient(circle at 88% 76%, rgba(255, 108, 79, .11), transparent 28%),
+        var(--night);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(280px, .28fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      width: fit-content;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .paper-section .section-label {
+      color: #8c3f2d;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.1rem, 4.4vw, 4.6rem);
+      line-height: .95;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-header p {
+      margin-bottom: 0;
+      color: rgba(255, 244, 220, .68);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .paper-section .section-header p {
+      color: rgba(33, 23, 18, .7);
+    }
+
+    .codex-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tab-button {
+      min-height: 38px;
+      border: 1px solid rgba(33, 23, 18, .22);
+      border-radius: var(--radius);
+      padding: 0 12px;
+      color: rgba(33, 23, 18, .72);
+      background: rgba(255, 255, 255, .26);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .tab-button.is-active,
+    .tab-button:hover {
+      color: #211712;
+      border-color: rgba(140, 63, 45, .48);
+      background: rgba(255, 255, 255, .5);
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .artifact-card {
+      position: relative;
+      min-height: 360px;
+      grid-column: span 4;
+      display: grid;
+      align-content: end;
+      overflow: hidden;
+      border: 1px solid rgba(33, 23, 18, .2);
+      border-radius: var(--radius);
+      background: #15171c;
+      box-shadow: 0 18px 34px rgba(50, 32, 18, .16);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .artifact-card.large {
+      grid-column: span 6;
+      min-height: 500px;
+    }
+
+    .artifact-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(140, 63, 45, .5);
+      box-shadow: 0 28px 54px rgba(50, 32, 18, .22);
+    }
+
+    .artifact-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease, filter .45s ease;
+    }
+
+    .artifact-card:hover img {
+      transform: scale(1.045);
+      filter: saturate(1.08) contrast(1.05);
+    }
+
+    .artifact-card.pixel img {
+      image-rendering: pixelated;
+    }
+
+    .artifact-card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      z-index: 1;
+      border: 1px solid rgba(255, 244, 220, .36);
+      border-radius: calc(var(--radius) - 2px);
+      pointer-events: none;
+    }
+
+    .artifact-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 28%, rgba(8, 10, 14, .22) 50%, rgba(8, 10, 14, .94)),
+        radial-gradient(circle at 18% 12%, rgba(233, 187, 109, .16), transparent 26%);
+      pointer-events: none;
+    }
+
+    .artifact-info {
+      position: relative;
+      z-index: 2;
+      padding: 22px;
+      color: var(--ivory);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, .58);
+    }
+
+    .artifact-info small {
+      display: inline-flex;
+      margin-bottom: 8px;
+      border: 1px solid rgba(233, 187, 109, .44);
+      border-radius: var(--radius);
+      padding: 5px 8px;
+      color: var(--gold-2);
+      background: rgba(10, 13, 19, .58);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .artifact-info h3 {
+      margin-bottom: 6px;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .artifact-info p {
+      margin-bottom: 0;
+      color: rgba(255, 244, 220, .75);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: .92rem;
+    }
+
+    .empty-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .empty-card {
+      min-height: 280px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 14px;
+      border: 1px dashed rgba(255, 244, 220, .3);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(255, 244, 220, .08), rgba(255, 244, 220, .025)),
+        #101721;
+    }
+
+    .empty-sigil {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(233, 187, 109, .48);
+      border-radius: 50%;
+      color: var(--gold);
+      background: radial-gradient(circle, rgba(233, 187, 109, .18), transparent 58%);
+      font-size: 2rem;
+    }
+
+    .empty-card h3 {
+      margin-bottom: 0;
+      font-size: 1.55rem;
+    }
+
+    .empty-card p {
+      max-width: 32ch;
+      margin-bottom: 0;
+      color: rgba(255, 244, 220, .66);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .source-panel {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(280px, .28fr);
+      gap: 18px;
+      align-items: center;
+      border: 1px solid rgba(255, 244, 220, .18);
+      border-radius: var(--radius);
+      padding: 22px;
+      background:
+        linear-gradient(135deg, rgba(66, 217, 206, .1), transparent 42%),
+        rgba(255, 244, 220, .04);
+    }
+
+    .source-panel h2 {
+      margin-bottom: 12px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+    }
+
+    .source-panel p {
+      margin-bottom: 0;
+      color: rgba(255, 244, 220, .68);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .site-footer {
+      border-top: 1px solid rgba(255, 244, 220, .12);
+      padding: 26px 0;
+      color: rgba(255, 244, 220, .62);
+      background: #07090d;
+      font-size: .88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .artifact-card.is-hidden {
+      display: none;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .section-header,
+      .source-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-card,
+      .artifact-card.large {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .site-header {
+        top: 10px;
+        width: calc(100% - 20px);
+      }
+
+      .nav-frame {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .nav-list {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .nav-list a {
+        min-height: 32px;
+        padding: 0 9px;
+        font-size: .74rem;
+      }
+
+      .hero-inner {
+        padding-top: 204px;
+        padding-bottom: 72px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 5rem);
+      }
+
+      .quest-stats,
+      .empty-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-card,
+      .artifact-card.large {
+        grid-column: 1 / -1;
+        min-height: 380px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header sans">
+    <div class="nav-frame">
+      <a class="brand" href="index.html" aria-label="Voltar para a página inicial">
+        <span class="brand-mark">BE</span>
+        <span>Breno Esteves</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a class="is-active" href="trabalhos.html">Trabalhos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#expansoes">Vídeos e Jogos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="reveal">
+          <p class="eyebrow sans">Guilda de trabalhos</p>
+          <h1 id="hero-title">Arquivo visual de <span class="accent">design, arte e mundos.</span></h1>
+          <p class="hero-lead sans">Uma galeria em formato RPG para reunir pixel art, ilustrações, personagens, estudos 3D e espaços preparados para vídeos e jogos.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#galeria">Abrir galeria</a>
+            <a class="button" href="https://www.artstation.com/brenoesteves1" target="_blank" rel="noreferrer">Ver ArtStation</a>
+            <a class="button" href="index.html">Voltar para LP</a>
+          </div>
+        </div>
+
+        <aside class="quest-card reveal sans" aria-label="Resumo do portfólio no ArtStation">
+          <h2>Inventário inicial importado do ArtStation.</h2>
+          <p>Perfil público: Breno Esteves, artist, illustrator, generalist 3D, designer e concept artist, São Paulo, Brazil.</p>
+          <div class="quest-stats">
+            <div class="quest-stat">
+              <strong>43</strong>
+              <span>artworks</span>
+            </div>
+            <div class="quest-stat">
+              <strong>22</strong>
+              <span>illustrations</span>
+            </div>
+            <div class="quest-stat">
+              <strong>12</strong>
+              <span>3D art</span>
+            </div>
+            <div class="quest-stat">
+              <strong>8</strong>
+              <span>pixel art</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section" id="galeria" aria-labelledby="galeria-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="section-label sans">Bestiário visual</p>
+            <h2 id="galeria-title">Trabalhos selecionados por classe.</h2>
+          </div>
+          <p>Os primeiros cards já usam artes públicas do ArtStation. Os espaços restantes podem receber novos estudos, vídeos, jogos, animações e links finais.</p>
+        </div>
+
+        <div class="codex-tabs sans" role="list" aria-label="Filtro de trabalhos">
+          <button class="tab-button is-active" type="button" data-filter="all">Todos</button>
+          <button class="tab-button" type="button" data-filter="pixel">Pixel Art</button>
+          <button class="tab-button" type="button" data-filter="illustration">Ilustração</button>
+          <button class="tab-button" type="button" data-filter="concept">Concept</button>
+          <button class="tab-button" type="button" data-filter="three-d">3D Art</button>
+        </div>
+
+        <div class="artifact-grid">
+          <article class="artifact-card large pixel reveal" data-category="pixel concept">
+            <img src="img/artstation/saga-de-gemeos.jpg" alt="Pixel art Saga de Gêmeos com armadura dourada" />
+            <div class="artifact-info">
+              <small>Pixel Art</small>
+              <h3>Saga de Gêmeos</h3>
+              <p>Personagem em armadura dourada, composição de sprite com forte leitura de silhueta.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card large illustration reveal" data-category="illustration concept">
+            <img src="img/artstation/char02.jpg" alt="Personagem futurista ilustrada por Breno Esteves" />
+            <div class="artifact-info">
+              <small>Ilustração</small>
+              <h3>Cyber Character</h3>
+              <p>Estudo de personagem com cores vibrantes, contraste alto e linguagem sci-fi.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card pixel reveal" data-category="pixel concept">
+            <img src="img/artstation/aldebaran-de-touro.jpg" alt="Pixel art Aldebaran de Touro" />
+            <div class="artifact-info">
+              <small>Pixel Art</small>
+              <h3>Aldebaran de Touro</h3>
+              <p>Sprite de armadura dourada com variações de volume e metal.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card pixel reveal" data-category="pixel concept">
+            <img src="img/artstation/mu-de-aries.jpg" alt="Pixel art Mu de Áries" />
+            <div class="artifact-info">
+              <small>Pixel Art</small>
+              <h3>Mu de Áries</h3>
+              <p>Personagem com armadura e pose heroica para coleção de sprites.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card pixel reveal" data-category="pixel concept">
+            <img src="img/artstation/camus.jpg" alt="Pixel art Camus" />
+            <div class="artifact-info">
+              <small>Pixel Art</small>
+              <h3>Camus</h3>
+              <p>Estudo de sprite com paleta fria, brilho metálico e proporção estilizada.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card illustration reveal" data-category="illustration concept">
+            <img src="img/artstation/char01.jpg" alt="Personagem original ilustrada por Breno Esteves" />
+            <div class="artifact-info">
+              <small>Ilustração</small>
+              <h3>Character Study</h3>
+              <p>Exploração visual de personagem, atitude e identidade gráfica.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card illustration reveal" data-category="illustration concept">
+            <img src="img/artstation/tartarugao.jpg" alt="Criatura tartarugão ilustrada por Breno Esteves" />
+            <div class="artifact-info">
+              <small>Creature Design</small>
+              <h3>Tartarugão</h3>
+              <p>Criação de criatura com peso, textura e leitura fantástica.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card illustration reveal" data-category="illustration concept">
+            <img src="img/artstation/archer-kira.jpg" alt="Archer Kira concept front" />
+            <div class="artifact-info">
+              <small>Concept Art</small>
+              <h3>Archer Kira</h3>
+              <p>Frente de personagem para estudo de costume, pose e proporção.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card illustration reveal" data-category="illustration">
+            <img src="img/artstation/rick.jpg" alt="Ilustração Rick por Breno Esteves" />
+            <div class="artifact-info">
+              <small>Ilustração</small>
+              <h3>Rick Study</h3>
+              <p>Estudo de personagem com traço expressivo e acabamento digital.</p>
+            </div>
+          </article>
+
+          <article class="artifact-card illustration reveal" data-category="illustration">
+            <img src="img/artstation/batman.jpg" alt="Ilustração Batman por Breno Esteves" />
+            <div class="artifact-info">
+              <small>Ilustração</small>
+              <h3>Batman Study</h3>
+              <p>Estudo de personagem, luz dramática e contraste de cena.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="expansoes" aria-labelledby="expansoes-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <p class="section-label sans">Expansões futuras</p>
+            <h2 id="expansoes-title">Slots preparados para vídeos, jogos e projetos novos.</h2>
+          </div>
+          <p>Esses cards ficam vazios de propósito, prontos para receber embeds, thumbnails, demos jogáveis e links quando você quiser alimentar a página.</p>
+        </div>
+
+        <div class="empty-grid">
+          <article class="empty-card reveal">
+            <div class="empty-sigil">▶</div>
+            <h3>Vídeos</h3>
+            <p>Espaço para reel, timelapse, motion design, processo criativo ou apresentação de projeto.</p>
+          </article>
+          <article class="empty-card reveal">
+            <div class="empty-sigil">✦</div>
+            <h3>Jogos</h3>
+            <p>Slot para protótipos, game design, sprites animados, builds jogáveis e links externos.</p>
+          </article>
+          <article class="empty-card reveal">
+            <div class="empty-sigil">＋</div>
+            <h3>Novos cases</h3>
+            <p>Área para adicionar estudos completos com briefing, processo, solução e resultado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" aria-labelledby="source-title">
+      <div class="container">
+        <div class="source-panel reveal">
+          <div>
+            <p class="section-label sans">Fonte dos trabalhos</p>
+            <h2 id="source-title">Portfólio público no ArtStation.</h2>
+            <p>As artes usadas como preenchimento inicial foram coletadas do perfil público de Breno Esteves no ArtStation. A página local pode continuar evoluindo com novas imagens, links individuais, vídeos e jogos.</p>
+          </div>
+          <div class="inline-actions">
+            <a class="button primary" href="https://www.artstation.com/brenoesteves1" target="_blank" rel="noreferrer">Abrir ArtStation</a>
+            <a class="button" href="index.html#contato">Falar com Breno</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer sans">
+    <div class="container footer-inner">
+      <span>© 2026 Breno Esteves. Galeria de trabalhos.</span>
+      <span>Pixel art, ilustração, 3D art, design e jogos.</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const tabs = Array.from(document.querySelectorAll(".tab-button"));
+    const cards = Array.from(document.querySelectorAll(".artifact-card"));
+
+    tabs.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        tabs.forEach((tab) => tab.classList.toggle("is-active", tab === button));
+        cards.forEach((card) => {
+          const categories = card.dataset.category || "";
+          card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

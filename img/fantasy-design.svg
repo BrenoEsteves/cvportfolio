@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone medieval de design">
+  <defs>
+    <linearGradient id="steel" x1="98" y1="68" x2="422" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e9f1ef"/>
+      <stop offset=".46" stop-color="#79919f"/>
+      <stop offset="1" stop-color="#263848"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="140" y1="98" x2="390" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".55" stop-color="#e0a856"/>
+      <stop offset="1" stop-color="#9c4d34"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M101 408 255 72l156 336" fill="none" stroke="url(#steel)" stroke-width="33" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M164 280h184" fill="none" stroke="url(#gold)" stroke-width="25" stroke-linecap="round"/>
+  <path d="M121 406h270" fill="none" stroke="#fff4dc" stroke-width="16" stroke-linecap="round" opacity=".72"/>
+  <circle cx="256" cy="72" r="24" fill="#ead9b8" stroke="#8b4b2e" stroke-width="10"/>
+  <path d="M91 196c44-42 98-63 163-63 70 0 127 26 171 77" fill="none" stroke="#42d9ce" stroke-width="10" stroke-linecap="round" opacity=".72"/>
+  <path d="M88 198c30 14 54 17 76 9M424 211c-32 9-58 8-78-4" fill="none" stroke="#42d9ce" stroke-width="10" stroke-linecap="round"/>
+  <path d="M126 150 96 104M386 150l30-46M168 92l-18-55M344 92l18-55" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="256" cy="280" r="18" fill="#ff6c4f" filter="url(#glow)"/>
+</svg>

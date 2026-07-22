@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone fantasia de web design">
+  <defs>
+    <linearGradient id="gold" x1="78" y1="58" x2="430" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".52" stop-color="#e4ad59"/>
+      <stop offset="1" stop-color="#8b4b2e"/>
+    </linearGradient>
+    <linearGradient id="portal" x1="134" y1="128" x2="384" y2="368" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#72fff5"/>
+      <stop offset=".48" stop-color="#946cff"/>
+      <stop offset="1" stop-color="#ff6c4f"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M256 58 397 139v234L256 454 115 373V139Z" fill="#172530" stroke="url(#gold)" stroke-width="16"/>
+  <rect x="124" y="126" width="264" height="174" rx="22" fill="#101721" stroke="url(#gold)" stroke-width="14"/>
+  <path d="M124 168h264" stroke="#ead9b8" stroke-width="12"/>
+  <circle cx="155" cy="147" r="9" fill="#ff6c4f"/>
+  <circle cx="184" cy="147" r="9" fill="#e9bb6d"/>
+  <circle cx="213" cy="147" r="9" fill="#42d9ce"/>
+  <path d="M181 245 231 205l50 40-50 40Z" fill="url(#portal)" filter="url(#glow)"/>
+  <path d="M285 218h54M285 249h35M172 332h168" fill="none" stroke="#fff4dc" stroke-width="13" stroke-linecap="round" opacity=".78"/>
+  <path d="M317 282 383 348" fill="none" stroke="#42d9ce" stroke-width="23" stroke-linecap="round"/>
+  <path d="M367 333 398 364" fill="none" stroke="#ff6c4f" stroke-width="13" stroke-linecap="round"/>
+</svg>

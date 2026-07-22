@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone medieval de IA aplicada">
+  <defs>
+    <linearGradient id="gem" x1="124" y1="80" x2="388" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".2" stop-color="#65fff0"/>
+      <stop offset=".65" stop-color="#946cff"/>
+      <stop offset="1" stop-color="#ff6c4f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="88" y1="68" x2="420" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".55" stop-color="#e3ae58"/>
+      <stop offset="1" stop-color="#8b4b2e"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M256 65 359 126v119c0 74-39 137-103 175-64-38-103-101-103-175V126Z" fill="#182331" stroke="url(#gold)" stroke-width="15"/>
+  <path d="M256 119 318 155v70c0 45-24 84-62 107-38-23-62-62-62-107v-70Z" fill="url(#gem)" opacity=".9" filter="url(#glow)"/>
+  <path d="M222 187h68c19 0 34 15 34 34v44c0 19-15 34-34 34h-68c-19 0-34-15-34-34v-44c0-19 15-34 34-34Z" fill="#101721" stroke="#fff4dc" stroke-width="12"/>
+  <path d="M224 267v-49M288 267v-49M224 241h64" fill="none" stroke="#42d9ce" stroke-width="12" stroke-linecap="round"/>
+  <path d="M142 166H94M142 224H83M142 282H94M370 166h48M370 224h59M370 282h48M190 116V76M256 103V52M322 116V76M190 388v48M256 408v52M322 388v48" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="83" cy="224" r="13" fill="#42d9ce"/>
+  <circle cx="429" cy="224" r="13" fill="#ff6c4f"/>
+  <circle cx="256" cy="52" r="13" fill="#fff4dc"/>
+  <circle cx="256" cy="460" r="13" fill="#946cff"/>
+</svg>

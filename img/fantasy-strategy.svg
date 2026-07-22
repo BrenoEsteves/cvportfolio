@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone medieval de estrategia">
+  <defs>
+    <linearGradient id="gold" x1="96" y1="56" x2="416" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".45" stop-color="#e3ae58"/>
+      <stop offset="1" stop-color="#8b4b2e"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="120" y1="100" x2="390" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#64fff0"/>
+      <stop offset="1" stop-color="#1d8a98"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="256" cy="256" r="198" fill="#2a2018" opacity=".12"/>
+  <path d="M256 54 306 88 366 84 392 139 446 166 436 226 463 281 418 323 405 383 345 394 298 434 243 407 183 415 150 365 95 339 99 278 70 224 111 180 121 119 181 105Z" fill="#1b2630" stroke="url(#gold)" stroke-width="15"/>
+  <circle cx="256" cy="256" r="112" fill="none" stroke="url(#gold)" stroke-width="23"/>
+  <circle cx="256" cy="256" r="62" fill="none" stroke="#fff4dc" stroke-width="20"/>
+  <circle cx="256" cy="256" r="20" fill="#ff6c4f" filter="url(#glow)"/>
+  <path d="M287 244 410 190l-42 47 55 20-132 24Z" fill="url(#teal)" stroke="#10292d" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M256 256 127 358" fill="none" stroke="#ead9b8" stroke-width="17" stroke-linecap="round"/>
+  <path d="M128 358 102 385M153 366l-25 27" fill="none" stroke="#b45c3f" stroke-width="15" stroke-linecap="round"/>
+  <path d="M190 113c34-18 93-19 133 2M142 170c-21 29-31 62-29 97M370 373c-32 24-76 33-118 24" fill="none" stroke="#fff4dc" stroke-width="9" stroke-linecap="round" opacity=".58"/>
+</svg>

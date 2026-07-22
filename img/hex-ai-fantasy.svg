@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone fantasia de IA aplicada">
+  <defs>
+    <linearGradient id="gold" x1="74" y1="54" x2="434" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".52" stop-color="#dfaa57"/>
+      <stop offset="1" stop-color="#8b4b2e"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="145" y1="100" x2="365" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6ffff4"/>
+      <stop offset=".45" stop-color="#946cff"/>
+      <stop offset="1" stop-color="#ff6c4f"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M256 58 397 139v234L256 454 115 373V139Z" fill="#172530" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M256 111 329 153v84c0 52-28 98-73 124-45-26-73-72-73-124v-84Z" fill="url(#gem)" opacity=".9" filter="url(#glow)"/>
+  <rect x="181" y="186" width="150" height="116" rx="22" fill="#101721" stroke="#fff4dc" stroke-width="13"/>
+  <path d="M224 263v-45M288 263v-45M224 241h64" fill="none" stroke="#42d9ce" stroke-width="12" stroke-linecap="round"/>
+  <path d="M153 169h-42M153 244H96M153 319h-42M359 169h42M359 244h57M359 319h42M202 135V91M256 124V73M310 135V91M202 378v43M256 388v51M310 378v43" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="96" cy="244" r="12" fill="#42d9ce"/>
+  <circle cx="416" cy="244" r="12" fill="#ff6c4f"/>
+  <circle cx="256" cy="73" r="12" fill="#fff4dc"/>
+  <circle cx="256" cy="439" r="12" fill="#946cff"/>
+</svg>

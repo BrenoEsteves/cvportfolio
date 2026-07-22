@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone geometrico de design">
+  <defs>
+    <style>
+      .line{fill:none;stroke:#b9c2c4;stroke-width:16;stroke-linecap:square;stroke-miterlimit:10}
+      .thin{fill:none;stroke:#b9c2c4;stroke-width:10;stroke-linecap:square;stroke-miterlimit:10}
+      .mass{fill:#535c66}
+      .soft{fill:#535c66;opacity:.5}
+    </style>
+  </defs>
+  <path class="mass" d="M262 80 394 438H176Z"/>
+  <path class="line" d="M95 454 248 58M154 454 318 58M358 58 452 454"/>
+  <path class="line" d="M28 315h456M28 374h456"/>
+  <circle class="thin" cx="78" cy="374" r="61"/>
+  <circle class="thin" cx="187" cy="374" r="25"/>
+  <circle class="thin" cx="362" cy="374" r="17"/>
+  <circle class="thin" cx="434" cy="374" r="45"/>
+  <path class="soft" d="M36 431h162v24H36zM336 431h141v24H336z"/>
+</svg>

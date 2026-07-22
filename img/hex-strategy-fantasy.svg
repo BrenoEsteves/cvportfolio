@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone fantasia de estrategia">
+  <defs>
+    <linearGradient id="gold" x1="72" y1="42" x2="430" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff0ba"/>
+      <stop offset=".48" stop-color="#e5af58"/>
+      <stop offset="1" stop-color="#8e4931"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="112" y1="80" x2="402" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70fff3"/>
+      <stop offset="1" stop-color="#167a8d"/>
+    </linearGradient>
+    <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M96 127 256 63l160 64v231l-160 91-160-91Z" fill="#172530" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M149 166c61-29 151-29 214 0v180c-62-24-153-24-214 0Z" fill="#ead9b8" stroke="#6d4b2f" stroke-width="12"/>
+  <path d="M171 195c42-16 76-18 120-12M171 233c64-18 101-14 170 3M171 271c50-14 99-14 170 3" fill="none" stroke="#7d6244" stroke-width="9" stroke-linecap="round" opacity=".72"/>
+  <path d="M256 112 286 205l98 1-79 58 30 94-79-58-79 58 30-94-79-58 98-1Z" fill="#1e3540" stroke="url(#gold)" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M256 170v95l69-42" fill="none" stroke="url(#teal)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <circle cx="256" cy="265" r="17" fill="#ff6c4f"/>
+</svg>

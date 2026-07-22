@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone geometrico de IA">
+  <defs>
+    <style>
+      .line{fill:none;stroke:#b9c2c4;stroke-width:16;stroke-linecap:square;stroke-miterlimit:10}
+      .thin{fill:none;stroke:#b9c2c4;stroke-width:10;stroke-linecap:square;stroke-miterlimit:10}
+      .mass{fill:#535c66}
+      .soft{fill:#535c66;opacity:.5}
+    </style>
+  </defs>
+  <path class="line" d="M256 66 382 139v146c0 66-35 122-126 165-91-43-126-99-126-165V139Z"/>
+  <path class="mass" d="M256 111 337 159v106c0 42-22 78-81 111-59-33-81-69-81-111V159Z"/>
+  <rect class="line" x="184" y="191" width="144" height="104"/>
+  <path class="thin" d="M218 262v-44M294 262v-44M218 240h76"/>
+  <path class="thin" d="M128 170H84M128 244H66M128 318H84M384 170h44M384 244h62M384 318h44"/>
+  <path class="thin" d="M206 132V82M256 117V50M306 132V82M206 380v50M256 397v65M306 380v50"/>
+  <circle class="soft" cx="66" cy="244" r="17"/>
+  <circle class="soft" cx="446" cy="244" r="17"/>
+</svg>

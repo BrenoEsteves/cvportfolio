@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone fantasia de interacao">
+  <defs>
+    <linearGradient id="gold" x1="72" y1="54" x2="436" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".52" stop-color="#dfaa57"/>
+      <stop offset="1" stop-color="#8b4b2e"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="130" y1="120" x2="380" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74fff5"/>
+      <stop offset=".5" stop-color="#3b85d7"/>
+      <stop offset="1" stop-color="#263848"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M256 58 397 139v234L256 454 115 373V139Z" fill="#172530" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M144 274c11-60 51-92 112-92s101 32 112 92l12 63c5 29-28 50-51 31l-47-39h-52l-47 39c-23 19-56-2-51-31Z" fill="url(#blue)" stroke="#fff4dc" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M206 260h-60M176 230v60" fill="none" stroke="#101721" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="322" cy="240" r="16" fill="#ff6c4f" filter="url(#glow)"/>
+  <circle cx="356" cy="276" r="16" fill="#e9bb6d"/>
+  <circle cx="288" cy="276" r="16" fill="#42d9ce"/>
+  <path d="M256 181V88" fill="none" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="256" cy="79" r="24" fill="#ff6c4f" stroke="#fff4dc" stroke-width="10"/>
+  <path d="M123 151 91 113M389 151l32-38M119 388l-37 36M393 388l37 36" fill="none" stroke="#42d9ce" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+</svg>

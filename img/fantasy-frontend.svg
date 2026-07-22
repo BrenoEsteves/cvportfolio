@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone medieval de front-end">
+  <defs>
+    <linearGradient id="screen" x1="102" y1="92" x2="410" y2="372" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8e9c5"/>
+      <stop offset=".38" stop-color="#5ecfe5"/>
+      <stop offset="1" stop-color="#27384b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="70" y1="70" x2="430" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".48" stop-color="#e6b35f"/>
+      <stop offset="1" stop-color="#8d4a31"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M95 116h322c22 0 40 18 40 40v184H55V156c0-22 18-40 40-40Z" fill="#17212d" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M85 154h342v158H85Z" fill="url(#screen)" opacity=".95"/>
+  <path d="M55 340h402v34c0 20-16 36-36 36H91c-20 0-36-16-36-36Z" fill="#121820" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M198 411h116l23 45H175Z" fill="#263848" stroke="#e6b35f" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M173 216 128 251l45 35M339 216l45 35-45 35" fill="none" stroke="#fff4dc" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M281 199 231 303" fill="none" stroke="#ff6c4f" stroke-width="18" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M115 166h54M115 190h34M356 166h42" fill="none" stroke="#fff4dc" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+  <path d="M105 96 76 58M407 96l29-38M256 83V39" fill="none" stroke="#42d9ce" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone geometrico de front-end">
+  <defs>
+    <style>
+      .line{fill:none;stroke:#b9c2c4;stroke-width:16;stroke-linecap:square;stroke-miterlimit:10}
+      .thin{fill:none;stroke:#b9c2c4;stroke-width:10;stroke-linecap:square;stroke-miterlimit:10}
+      .mass{fill:#535c66}
+      .soft{fill:#535c66;opacity:.52}
+    </style>
+  </defs>
+  <rect class="line" x="74" y="92" width="364" height="236"/>
+  <path class="mass" d="M98 118h316v134H98Z"/>
+  <path class="line" d="M74 328h364M196 328l-30 92h180l-30-92"/>
+  <path class="thin" d="M193 199 142 238l51 39M319 199l51 39-51 39M282 178l-52 120"/>
+  <path class="thin" d="M110 126h54M110 156h38M348 126h54"/>
+  <circle class="thin" cx="256" cy="374" r="18"/>
+  <path class="soft" d="M140 430h232v24H140z"/>
+</svg>

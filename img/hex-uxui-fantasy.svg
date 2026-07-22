@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone fantasia de UX e UI">
+  <defs>
+    <linearGradient id="metal" x1="80" y1="58" x2="418" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f3eee0"/>
+      <stop offset=".48" stop-color="#89a0aa"/>
+      <stop offset="1" stop-color="#253446"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="90" y1="58" x2="422" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff1bd"/>
+      <stop offset=".5" stop-color="#dfaa57"/>
+      <stop offset="1" stop-color="#9a4c33"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M256 58 395 139v234L256 454 117 373V139Z" fill="#172530" stroke="url(#gold)" stroke-width="16"/>
+  <path d="M154 365 256 92l102 273" fill="none" stroke="url(#metal)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M198 252h116" fill="none" stroke="#fff4dc" stroke-width="18" stroke-linecap="round"/>
+  <path d="M121 365h270" fill="none" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+  <path d="M129 214c38-37 80-56 127-56s89 19 127 56" fill="none" stroke="#42d9ce" stroke-width="10" stroke-linecap="round" opacity=".78"/>
+  <circle cx="256" cy="92" r="18" fill="#ead9b8" stroke="#8b4b2e" stroke-width="8"/>
+  <circle cx="256" cy="252" r="18" fill="#ff6c4f" filter="url(#glow)"/>
+  <path d="M171 136 145 94M341 136l26-42M207 108l-9-52M305 108l9-52" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+</svg>

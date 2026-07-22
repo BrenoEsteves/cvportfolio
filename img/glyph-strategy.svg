@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Icone geometrico de estrategia">
+  <defs>
+    <style>
+      .line{fill:none;stroke:#b9c2c4;stroke-width:16;stroke-linecap:square;stroke-miterlimit:10}
+      .thin{fill:none;stroke:#b9c2c4;stroke-width:10;stroke-linecap:square;stroke-miterlimit:10}
+      .mass{fill:#535c66}
+      .soft{fill:#535c66;opacity:.55}
+    </style>
+  </defs>
+  <path class="mass" d="M248 76 354 312H142Z"/>
+  <path class="line" d="M92 446 248 76 420 446"/>
+  <path class="line" d="M31 318h450M31 382h450"/>
+  <circle class="thin" cx="108" cy="382" r="64"/>
+  <circle class="thin" cx="382" cy="382" r="35"/>
+  <path class="thin" d="M330 169 438 132l-36 38 44 20-109 17"/>
+  <path class="thin" d="M256 84v314"/>
+  <path class="soft" d="M79 430h120v24H79zM342 430h86v24h-86z"/>
+</svg>
